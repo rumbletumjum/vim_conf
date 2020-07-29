@@ -11,10 +11,12 @@ call minpac#add('fatih/vim-go', { 'rev': 'v1.23' })
 " themes
 call minpac#add('andreypopp/vim-colors-plain')
 call minpac#add('arcticicestudio/nord-vim', { 'branch': 'develop' })
+call minpac#add('jacoborus/tender.vim')
 call minpac#add('jeffkreeftmeijer/vim-dim')
 call minpac#add('lifepillar/vim-solarized8')
 call minpac#add('morhetz/gruvbox')
 call minpac#add('noahfrederick/vim-noctu')
+call minpac#add('owickstrom/vim-colors-paramount')
 call minpac#add('robertmeta/nofrils')
 call minpac#add('romainl/apprentice')
 call minpac#add('romainl/flattened')
@@ -24,14 +26,18 @@ call minpac#add('xero/sourcerer.vim')
 
 set listchars=tab:▸\ ,eol:¬,trail:#,extends:>
 
-set shiftwidth=4
-set softtabstop=0
-set tabstop=4
+" set shiftwidth=4
+" set softtabstop=0
+" set tabstop=4
+set sw=2
+set sts=2
+set autoindent
 set expandtab
 
 set background=dark
 set t_Co=256
-colorscheme gruvbox
+" let g:gruvbox_contrast_dark='soft'
+colorscheme plain-cterm
 
 set noshowmode
 set number

@@ -1,32 +1,36 @@
 call plug#begin('~/.vim/plugged')
 
-Plug 'flazz/vim-colorschemes'
+"Plug 'flazz/vim-colorschemes'
 
 Plug 'andreypopp/vim-colors-plain'
-Plug 'arcticicestudio/nord-vim'
+"Plug 'arcticicestudio/nord-vim'
+"Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'chriskempson/base16-vim'
 Plug 'dylanaraps/wal.vim'
-Plug 'gruvbox-community/gruvbox'
+"Plug 'gruvbox-community/gruvbox'
 Plug 'jeffkreeftmeijer/vim-dim'
-Plug 'joshdick/onedark.vim'
-Plug 'lifepillar/vim-solarized8'
+"Plug 'joshdick/onedark.vim'
+"Plug 'lifepillar/vim-solarized8'
 Plug 'noahfrederick/vim-noctu'
 Plug 'robertmeta/nofrils'
-Plug 'romainl/apprentice'
-Plug 'romainl/flattened'
-Plug 'sainnhe/gruvbox-material'
+"Plug 'romainl/apprentice'
+"Plug 'romainl/flattened'
+"Plug 'sainnhe/gruvbox-material'
 Plug 'w0ng/vim-hybrid'
-Plug 'yorickpeterse/happy_hacking.vim'
+"Plug 'yorickpeterse/happy_hacking.vim'
 
 Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+Plug 'maxmellon/vim-jsx-pretty'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'sheerun/vim-polyglot'
 
-Plug 'vimwiki/vimwiki'
+"Plug 'vimwiki/vimwiki'
 
 call plug#end()
 
-syntax off
+"syntax off
 
 noremap <Space> <Nop>
 let mapleader = "\<space>"
@@ -47,14 +51,19 @@ set autoindent
 
 set t_8f=[38;2;%lu;%lu;%lum
 set t_8b=[48;2;%lu;%lu;%lum
-"set background=dark
-" set t_Co=256
+set background=dark
+set t_Co=256
 "if (has("termguicolors"))
 "  set termguicolors
 "endif
 
-set background=light
-colorscheme wal
+"set background=light
+"colorscheme base16-default-dark
+
+if filereadable(expand("~/.vimrc_background"))
+    let base16colorspace=256
+    source ~/.vimrc_background
+endif
 
 set noshowmode
 set number

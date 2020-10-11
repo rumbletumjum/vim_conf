@@ -5,7 +5,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'andreypopp/vim-colors-plain'
 "Plug 'arcticicestudio/nord-vim'
 "Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'chriskempson/base16-vim'
+"Plug 'chriskempson/base16-vim'
 Plug 'dylanaraps/wal.vim'
 "Plug 'gruvbox-community/gruvbox'
 Plug 'jeffkreeftmeijer/vim-dim'

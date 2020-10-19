@@ -3,11 +3,11 @@ call plug#begin('~/.vim/plugged')
 "Plug 'flazz/vim-colorschemes'
 
 Plug 'andreypopp/vim-colors-plain'
-"Plug 'arcticicestudio/nord-vim'
+Plug 'arcticicestudio/nord-vim'
 "Plug 'dracula/vim', { 'as': 'dracula' }
 "Plug 'chriskempson/base16-vim'
 Plug 'dylanaraps/wal.vim'
-"Plug 'gruvbox-community/gruvbox'
+Plug 'gruvbox-community/gruvbox'
 Plug 'jeffkreeftmeijer/vim-dim'
 "Plug 'joshdick/onedark.vim'
 "Plug 'lifepillar/vim-solarized8'
@@ -26,7 +26,7 @@ Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'sheerun/vim-polyglot'
 
-"Plug 'vimwiki/vimwiki'
+Plug 'vimwiki/vimwiki'
 
 call plug#end()
 
@@ -45,7 +45,7 @@ let mapleader = "\<space>"
 
 set shiftwidth=4
 set softtabstop=4
-" set tabstop=4
+set tabstop=4
 set expandtab
 set autoindent
 
@@ -58,12 +58,12 @@ set t_Co=256
 "endif
 
 "set background=light
-"colorscheme base16-default-dark
+colorscheme nord
 
-if filereadable(expand("~/.vimrc_background"))
-    let base16colorspace=256
-    source ~/.vimrc_background
-endif
+"if filereadable(expand("~/.vimrc_background"))
+"    let base16colorspace=256
+"    source ~/.vimrc_background
+"endif
 
 set noshowmode
 set number

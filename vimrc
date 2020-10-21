@@ -58,7 +58,7 @@ set t_Co=256
 "endif
 
 "set background=light
-colorscheme nord
+colorscheme ron
 
 "if filereadable(expand("~/.vimrc_background"))
 "    let base16colorspace=256

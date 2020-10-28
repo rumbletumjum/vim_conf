@@ -1,36 +1,36 @@
 call plug#begin('~/.vim/plugged')
 
-"Plug 'flazz/vim-colorschemes'
-
 Plug 'andreypopp/vim-colors-plain'
 Plug 'arcticicestudio/nord-vim'
-"Plug 'dracula/vim', { 'as': 'dracula' }
-"Plug 'chriskempson/base16-vim'
 Plug 'dylanaraps/wal.vim'
+Plug 'franbach/miramare'
 Plug 'gruvbox-community/gruvbox'
+Plug 'jacoborus/tender.vim'
 Plug 'jeffkreeftmeijer/vim-dim'
-"Plug 'joshdick/onedark.vim'
-"Plug 'lifepillar/vim-solarized8'
+Plug 'jsit/toast.vim'
+Plug 'joshdick/onedark.vim'
+Plug 'lifepillar/vim-gruvbox8'
+Plug 'lifepillar/vim-solarized8'
 Plug 'noahfrederick/vim-noctu'
 Plug 'robertmeta/nofrils'
-"Plug 'romainl/apprentice'
-"Plug 'romainl/flattened'
-"Plug 'sainnhe/gruvbox-material'
+Plug 'romainl/apprentice'
+Plug 'romainl/flattened'
 Plug 'w0ng/vim-hybrid'
-"Plug 'yorickpeterse/happy_hacking.vim'
+Plug 'yorickpeterse/happy_hacking.vim'
 
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'maxmellon/vim-jsx-pretty'
-Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-surround'
 Plug 'sheerun/vim-polyglot'
 
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-surround'
+
+Plug 'airblade/vim-gitgutter'
+Plug 'ap/vim-css-color'
 Plug 'vimwiki/vimwiki'
 
 call plug#end()
-
-"syntax off
 
 noremap <Space> <Nop>
 let mapleader = "\<space>"
@@ -49,21 +49,15 @@ set tabstop=4
 set expandtab
 set autoindent
 
-set t_8f=[38;2;%lu;%lu;%lum
-set t_8b=[48;2;%lu;%lu;%lum
 set background=dark
 set t_Co=256
-"if (has("termguicolors"))
-"  set termguicolors
-"endif
+if (has("termguicolors"))
+  set t_8f=[38;2;%lu;%lu;%lum
+  set t_8b=[48;2;%lu;%lu;%lum
+  set termguicolors
+endif
 
-"set background=light
-colorscheme ron
-
-"if filereadable(expand("~/.vimrc_background"))
-"    let base16colorspace=256
-"    source ~/.vimrc_background
-"endif
+colorscheme miramare
 
 set noshowmode
 set number
@@ -87,3 +81,6 @@ set colorcolumn=80
 "highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 au FileType vimwiki setlocal shiftwidth=6 tabstop=6 noexpandtab
+
+autocmd BufWritePost *Xresources,*Xdefaults !xrdb %
+" vim: expandtab ts=2 sw=2 sts=2

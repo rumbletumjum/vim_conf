@@ -13,6 +13,7 @@ call minpac#add('andreypopp/vim-colors-plain')
 call minpac#add('arcticicestudio/nord-vim', { 'branch': 'develop' })
 call minpac#add('jacoborus/tender.vim')
 call minpac#add('jeffkreeftmeijer/vim-dim')
+call minpac#add('lifepillar/vim-gruvbox8')
 call minpac#add('lifepillar/vim-solarized8')
 call minpac#add('morhetz/gruvbox')
 call minpac#add('noahfrederick/vim-noctu')
@@ -29,15 +30,20 @@ set listchars=tab:▸\ ,eol:¬,trail:#,extends:>
 " set shiftwidth=4
 " set softtabstop=0
 " set tabstop=4
-set sw=2
-set sts=2
+set shiftwidth=2
+set softtabstop=2
 set autoindent
 set expandtab
 
 set background=dark
 set t_Co=256
-" let g:gruvbox_contrast_dark='soft'
-colorscheme plain-cterm
+if (has("termguicolors"))
+  set t_8f=[38;2;%lu;%lu;%lum
+  set t_8b=[48;2;%lu;%lu;%lum
+  set termguicolors
+endif
+
+colorscheme gruvbox8
 
 set noshowmode
 set number

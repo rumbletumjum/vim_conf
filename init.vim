@@ -3,10 +3,10 @@ packadd minpac
 call minpac#init()
 call minpac#add('k-takata/minpac', { 'type': 'opt' })
 " call minpac#add('itchyny/lightline.vim')
-call minpac#add('vimwiki/vimwiki')
+
 call minpac#add('sheerun/vim-polyglot')
 call minpac#add('tpope/vim-surround')
-call minpac#add('fatih/vim-go', { 'rev': 'v1.23' })
+call minpac#add('vimwiki/vimwiki')
 
 " themes
 call minpac#add('andreypopp/vim-colors-plain')

@@ -11,6 +11,7 @@ call minpac#add('vimwiki/vimwiki')
 " themes
 call minpac#add('andreypopp/vim-colors-plain')
 call minpac#add('arcticicestudio/nord-vim', { 'branch': 'develop' })
+call minpac#add('danilo-augusto/vim-afterglow')
 call minpac#add('jacoborus/tender.vim')
 call minpac#add('jeffkreeftmeijer/vim-dim')
 call minpac#add('lifepillar/vim-gruvbox8')
@@ -43,7 +44,7 @@ if (has("termguicolors"))
   set termguicolors
 endif
 
-colorscheme gruvbox8
+colorscheme afterglow
 
 set noshowmode
 set number

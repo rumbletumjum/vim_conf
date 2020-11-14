@@ -1,7 +1,9 @@
+set nocompatible
 call plug#begin('~/.vim/plugged')
 
 Plug 'andreypopp/vim-colors-plain'
 Plug 'arcticicestudio/nord-vim'
+Plug 'danilo-augusto/vim-afterglow'
 Plug 'dylanaraps/wal.vim'
 Plug 'franbach/miramare'
 Plug 'gruvbox-community/gruvbox'
@@ -23,11 +25,15 @@ Plug 'leafgarland/typescript-vim'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'sheerun/vim-polyglot'
 
+Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
 
 Plug 'airblade/vim-gitgutter'
 Plug 'ap/vim-css-color'
+Plug 'jceb/vim-orgmode'
+Plug 'junegunn/goyo.vim'
 Plug 'vimwiki/vimwiki'
 
 call plug#end()
@@ -57,7 +63,7 @@ if (has("termguicolors"))
   set termguicolors
 endif
 
-colorscheme miramare
+colorscheme afterglow
 
 set noshowmode
 set number
@@ -72,6 +78,9 @@ set incsearch
 set ignorecase
 
 set colorcolumn=80
+
+set modeline
+set modelines=10
 
 "augroup AutoSaveFolds
 "    autocmd!

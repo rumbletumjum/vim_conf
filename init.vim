@@ -44,7 +44,7 @@ if (has("termguicolors"))
   set termguicolors
 endif
 
-colorscheme afterglow
+colorscheme gruvbox8_soft
 
 set noshowmode
 set number

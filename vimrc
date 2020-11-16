@@ -55,6 +55,10 @@ set tabstop=4
 set expandtab
 set autoindent
 
+let &t_SI = "\<Esc>[6 q"
+let &t_SR = "\<Esc>[4 q"
+let &t_EI = "\<Esc>[1 q"
+
 set background=dark
 set t_Co=256
 if (has("termguicolors"))
@@ -63,7 +67,7 @@ if (has("termguicolors"))
   set termguicolors
 endif
 
-colorscheme afterglow
+colorscheme nord
 
 set noshowmode
 set number

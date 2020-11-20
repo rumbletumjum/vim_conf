@@ -14,6 +14,7 @@ Plug 'joshdick/onedark.vim'
 Plug 'lifepillar/vim-gruvbox8'
 Plug 'lifepillar/vim-solarized8'
 Plug 'noahfrederick/vim-noctu'
+Plug 'rigellute/rigel'
 Plug 'robertmeta/nofrils'
 Plug 'romainl/apprentice'
 Plug 'romainl/flattened'
@@ -32,8 +33,11 @@ Plug 'tpope/vim-surround'
 
 Plug 'airblade/vim-gitgutter'
 Plug 'ap/vim-css-color'
+Plug 'itchyny/lightline.vim'
 Plug 'jceb/vim-orgmode'
 Plug 'junegunn/goyo.vim'
+Plug 'lifepillar/vim-colortemplate'
+Plug 'ledger/vim-ledger'
 Plug 'vimwiki/vimwiki'
 
 call plug#end()
@@ -67,11 +71,15 @@ if (has("termguicolors"))
   set termguicolors
 endif
 
+let g:nord_cursor_line_number_background = 1
 colorscheme nord
 
 set noshowmode
+set laststatus=2
 set number
 set relativenumber
+set colorcolumn=80
+set cursorline
 
 set noswapfile
 set nobackup
@@ -81,10 +89,9 @@ set undofile
 set incsearch
 set ignorecase
 
-set colorcolumn=80
-
-set modeline
-set modelines=10
+let g:lightline = {'colorscheme': 'nord',
+		\ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
+    \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" } }
 
 "augroup AutoSaveFolds
 "    autocmd!

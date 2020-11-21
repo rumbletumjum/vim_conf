@@ -1,6 +1,6 @@
 set nocompatible
 call plug#begin('~/.vim/plugged')
-
+"{{{
 Plug 'andreypopp/vim-colors-plain'
 Plug 'arcticicestudio/nord-vim'
 Plug 'danilo-augusto/vim-afterglow'
@@ -13,6 +13,7 @@ Plug 'jsit/toast.vim'
 Plug 'joshdick/onedark.vim'
 Plug 'lifepillar/vim-gruvbox8'
 Plug 'lifepillar/vim-solarized8'
+Plug 'nanotech/jellybeans.vim'
 Plug 'noahfrederick/vim-noctu'
 Plug 'rigellute/rigel'
 Plug 'robertmeta/nofrils'
@@ -39,7 +40,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'lifepillar/vim-colortemplate'
 Plug 'ledger/vim-ledger'
 Plug 'vimwiki/vimwiki'
-
+"}}}
 call plug#end()
 
 noremap <Space> <Nop>
@@ -71,8 +72,7 @@ if (has("termguicolors"))
   set termguicolors
 endif
 
-let g:nord_cursor_line_number_background = 1
-colorscheme nord
+colorscheme jellybeans
 
 set noshowmode
 set laststatus=2
@@ -89,18 +89,8 @@ set undofile
 set incsearch
 set ignorecase
 
-let g:lightline = {'colorscheme': 'nord',
-		\ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
-    \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" } }
-
-"augroup AutoSaveFolds
-"    autocmd!
-"    autocmd BufWinLeave * mkview
-"    autocmd BufWinEnter * silent loadview
-"augroup END
-"highlight ColorColumn ctermbg=0 guibg=lightgrey
-
 au FileType vimwiki setlocal shiftwidth=6 tabstop=6 noexpandtab
 
 autocmd BufWritePost *Xresources,*Xdefaults !xrdb %
-" vim: expandtab ts=2 sw=2 sts=2
+
+" vim: ts=2:sts=2:sw=2:et:fdm=marker

@@ -1,46 +1,53 @@
 set nocompatible
 call plug#begin('~/.vim/plugged')
-"{{{
+
+"{{{1
+" themes
+"Plug 'itchyny/lightline.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'alessandroyorba/alduin'
+Plug 'alessandroyorba/arcadia'
+Plug 'alessandroyorba/sierra'
 Plug 'andreypopp/vim-colors-plain'
+Plug 'ap/vim-css-color'
 Plug 'arcticicestudio/nord-vim'
+Plug 'cocopon/iceberg.vim'
 Plug 'danilo-augusto/vim-afterglow'
 Plug 'dylanaraps/wal.vim'
 Plug 'franbach/miramare'
 Plug 'gruvbox-community/gruvbox'
 Plug 'jacoborus/tender.vim'
+Plug 'jceb/vim-orgmode'
 Plug 'jeffkreeftmeijer/vim-dim'
-Plug 'jsit/toast.vim'
 Plug 'joshdick/onedark.vim'
+Plug 'jsit/toast.vim'
+Plug 'junegunn/goyo.vim'
+Plug 'kkga/vim-envy'
+Plug 'leafgarland/typescript-vim'
+Plug 'ledger/vim-ledger'
+Plug 'lifepillar/vim-colortemplate'
 Plug 'lifepillar/vim-gruvbox8'
 Plug 'lifepillar/vim-solarized8'
+Plug 'maxmellon/vim-jsx-pretty'
 Plug 'nanotech/jellybeans.vim'
 Plug 'noahfrederick/vim-noctu'
+Plug 'pangloss/vim-javascript'
 Plug 'rigellute/rigel'
 Plug 'robertmeta/nofrils'
 Plug 'romainl/apprentice'
 Plug 'romainl/flattened'
-Plug 'w0ng/vim-hybrid'
-Plug 'yorickpeterse/happy_hacking.vim'
-
-Plug 'pangloss/vim-javascript'
-Plug 'leafgarland/typescript-vim'
-Plug 'maxmellon/vim-jsx-pretty'
+Plug 'sainnhe/edge'
+Plug 'sainnhe/forest-night'
 Plug 'sheerun/vim-polyglot'
-
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
-
-Plug 'airblade/vim-gitgutter'
-Plug 'ap/vim-css-color'
-Plug 'itchyny/lightline.vim'
-Plug 'jceb/vim-orgmode'
-Plug 'junegunn/goyo.vim'
-Plug 'lifepillar/vim-colortemplate'
-Plug 'ledger/vim-ledger'
 Plug 'vimwiki/vimwiki'
-"}}}
+Plug 'w0ng/vim-hybrid'
+Plug 'yorickpeterse/happy_hacking.vim'
+"}}}1
+
 call plug#end()
 
 noremap <Space> <Nop>
@@ -72,7 +79,7 @@ if (has("termguicolors"))
   set termguicolors
 endif
 
-colorscheme jellybeans
+colorscheme envy
 
 set noshowmode
 set laststatus=2
@@ -88,6 +95,8 @@ set undofile
 
 set incsearch
 set ignorecase
+
+"hi ColorColumn ctermbg=0 guibg=
 
 au FileType vimwiki setlocal shiftwidth=6 tabstop=6 noexpandtab
 

@@ -11,6 +11,7 @@ Plug 'alessandroyorba/sierra'
 Plug 'andreypopp/vim-colors-plain'
 Plug 'ap/vim-css-color'
 Plug 'arcticicestudio/nord-vim'
+Plug 'arzg/vim-substrata'
 Plug 'cocopon/iceberg.vim'
 Plug 'danilo-augusto/vim-afterglow'
 Plug 'dylanaraps/wal.vim'
@@ -79,7 +80,7 @@ if (has("termguicolors"))
   set termguicolors
 endif
 
-colorscheme envy
+colorscheme substrata
 
 set noshowmode
 set laststatus=2

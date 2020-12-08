@@ -1,14 +1,15 @@
 packadd minpac
 
+" minpac {{{
 call minpac#init()
 call minpac#add('k-takata/minpac', { 'type': 'opt' })
 " call minpac#add('itchyny/lightline.vim')
 
 call minpac#add('sheerun/vim-polyglot')
-call minpac#add('tpope/vim-surround')
 call minpac#add('vimwiki/vimwiki')
-
-" themes
+" tpope is a national treausre {{{
+call minpac#add('tpope/vim-surround')
+"}}} themes {{{
 call minpac#add('andreypopp/vim-colors-plain')
 call minpac#add('arcticicestudio/nord-vim', { 'branch': 'develop' })
 call minpac#add('danilo-augusto/vim-afterglow')
@@ -18,6 +19,7 @@ call minpac#add('lifepillar/vim-gruvbox8')
 call minpac#add('lifepillar/vim-solarized8')
 call minpac#add('morhetz/gruvbox')
 call minpac#add('noahfrederick/vim-noctu')
+call minpac#add('nerdypepper/agila.vim')
 call minpac#add('owickstrom/vim-colors-paramount')
 call minpac#add('robertmeta/nofrils')
 call minpac#add('romainl/apprentice')
@@ -25,6 +27,7 @@ call minpac#add('romainl/flattened')
 call minpac#add('sainnhe/gruvbox-material', {'type': 'opt' })
 call minpac#add('w0ng/vim-hybrid')
 call minpac#add('xero/sourcerer.vim')
+" }}}
 
 set listchars=tab:▸\ ,eol:¬,trail:#,extends:>
 
@@ -56,3 +59,5 @@ command! PackStatus packadd minpac | source $MYVIMRC | call minpac#status()
 
 "nnoremap ,ho :HexokinaseTurnOn
 "nnoremap ,ht :HexokinaseToggle
+
+" vim:ts=2:sts=2:sw=2:et:fdm=marker

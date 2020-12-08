@@ -1,7 +1,7 @@
 set nocompatible
 call plug#begin('~/.vim/plugged')
 
-"{{{2
+"{{{1
 Plug 'airblade/vim-gitgutter'
 Plug 'ap/vim-css-color'
 Plug 'arzg/vim-substrata'
@@ -12,13 +12,14 @@ Plug 'kkga/vim-envy'
 Plug 'lifepillar/vim-colortemplate'
 Plug 'lifepillar/vim-gruvbox8'
 Plug 'lifepillar/vim-solarized8'
+Plug 'nerdypepper/agila.vim'
 Plug 'srcery-colors/srcery-vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
-"}}}2
+"}}}1
 
 call plug#end()
 
@@ -43,14 +44,15 @@ let &t_SI = "\<Esc>[6 q"
 let &t_SR = "\<Esc>[4 q"
 let &t_EI = "\<Esc>[1 q"
 
-set t_Co=256
+"set t_Co=256
 if (has("termguicolors"))
   set t_8f=[38;2;%lu;%lu;%lum
   set t_8b=[48;2;%lu;%lu;%lum
   set termguicolors
 endif
 
-colorscheme srcery
+set background=dark
+colorscheme gruvbox8
 
 set noshowmode
 set laststatus=2
@@ -66,6 +68,8 @@ set undofile
 
 set incsearch
 set ignorecase
+
+set splitbelow splitright
 
 "hi ColorColumn ctermbg=0 guibg=
 

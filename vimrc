@@ -45,14 +45,14 @@ let &t_SR = "\<Esc>[4 q"
 let &t_EI = "\<Esc>[1 q"
 
 "set t_Co=256
-if (has("termguicolors"))
-  set t_8f=[38;2;%lu;%lu;%lum
-  set t_8b=[48;2;%lu;%lu;%lum
-  set termguicolors
-endif
+" if (has("termguicolors"))
+"   set t_8f=[38;2;%lu;%lu;%lum
+"   set t_8b=[48;2;%lu;%lu;%lum
+"   set termguicolors
+" endif
 
 set background=dark
-colorscheme gruvbox8
+colorscheme jcs
 
 set noshowmode
 set laststatus=2

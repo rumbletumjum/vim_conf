@@ -2,19 +2,6 @@ set nocompatible
 call plug#begin('~/.vim/plugged')
 
 "{{{1
-Plug 'airblade/vim-gitgutter'
-Plug 'ap/vim-css-color'
-Plug 'arzg/vim-substrata'
-Plug 'jsit/toast.vim'
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
-Plug 'kkga/vim-envy'
-Plug 'lifepillar/vim-colortemplate'
-Plug 'lifepillar/vim-gruvbox8'
-Plug 'lifepillar/vim-solarized8'
-Plug 'nerdypepper/agila.vim'
-Plug 'srcery-colors/srcery-vim'
-Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-speeddating'

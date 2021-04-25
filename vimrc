@@ -39,7 +39,7 @@ let &t_EI = "\<Esc>[1 q"
 " endif
 
 set background=dark
-colorscheme jcs
+colorscheme ron
 
 set noshowmode
 set laststatus=2

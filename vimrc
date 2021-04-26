@@ -6,6 +6,8 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
+
+Plug 'gruvbox-community/gruvbox'
 "}}}1
 
 call plug#end()

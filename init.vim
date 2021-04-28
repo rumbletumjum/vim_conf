@@ -7,9 +7,12 @@ call minpac#add('k-takata/minpac', { 'type': 'opt' })
 
 call minpac#add('sheerun/vim-polyglot')
 call minpac#add('vimwiki/vimwiki')
+
 " tpope is a national treausre {{{
 call minpac#add('tpope/vim-surround')
-"}}} themes {{{
+"}}} 
+
+"themes {{{
 call minpac#add('andreypopp/vim-colors-plain')
 call minpac#add('arcticicestudio/nord-vim', { 'branch': 'develop' })
 call minpac#add('danilo-augusto/vim-afterglow')
@@ -27,6 +30,8 @@ call minpac#add('romainl/flattened')
 call minpac#add('sainnhe/gruvbox-material', {'type': 'opt' })
 call minpac#add('w0ng/vim-hybrid')
 call minpac#add('xero/sourcerer.vim')
+" }}}
+
 " }}}
 
 set listchars=tab:▸\ ,eol:¬,trail:#,extends:>

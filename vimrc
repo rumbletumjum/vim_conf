@@ -8,6 +8,10 @@ Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
 
 Plug 'gruvbox-community/gruvbox'
+Plug 'sainnhe/edge'
+Plug 'sainnhe/everforest'
+Plug 'sainnhe/gruvbox-material'
+Plug 'sainnhe/sonokai'
 "}}}1
 
 call plug#end()
@@ -33,7 +37,7 @@ let &t_SI = "\<Esc>[6 q"
 let &t_SR = "\<Esc>[4 q"
 let &t_EI = "\<Esc>[1 q"
 
-"set t_Co=256
+" set t_Co=256
 " if (has("termguicolors"))
 "   set t_8f=[38;2;%lu;%lu;%lum
 "   set t_8b=[48;2;%lu;%lu;%lum
@@ -64,6 +68,7 @@ set splitbelow splitright
 
 au FileType vimwiki setlocal shiftwidth=6 tabstop=6 noexpandtab
 
+autocmd BufWritePost .vimrc source %
 autocmd BufWritePost *Xresources,*Xdefaults !xrdb %
 
 " vim: ts=2:sts=2:sw=2:et:fdm=marker

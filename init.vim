@@ -10,6 +10,8 @@ call minpac#add('vimwiki/vimwiki')
 
 " tpope is a national treausre {{{
 call minpac#add('tpope/vim-surround')
+call minpac#add('tpope/vim-commentary')
+call minpac#add('tpope/vim-sensible')
 "}}} 
 
 "themes {{{

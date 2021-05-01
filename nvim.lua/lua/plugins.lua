@@ -1,8 +1,6 @@
-vim.cmd [[autocmd BufWritePost plugins.lua PackerCompile]]
-
 return require('packer').startup(function(use)
     -- Packer
-    use 'wbthomason/packer.nvim'
+    use { 'wbthomason/packer.nvim', opt = true }
 
     -- tpope
     use 'tpope/vim-surround'
@@ -12,4 +10,9 @@ return require('packer').startup(function(use)
     use 'nanotech/jellybeans.vim'
     use 'sainnhe/everforest'
     use 'sainnhe/gruvbox-material'
+
+    use {
+      'nvim-telescope/telescope.nvim',
+      requires = { {'nvim-lua/popup.nvim'} , {'nvim-lua/plenary.nvim'} }
+    }
 end)

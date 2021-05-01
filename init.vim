@@ -64,6 +64,9 @@ command! PackUpdate packadd minpac | source $MYVIMRC | call minpac#update('', { 
 command! PackClean  packadd minpac | source $MYVIMRC | call minpac#clean()
 command! PackStatus packadd minpac | source $MYVIMRC | call minpac#status()
 
+vnoremap > >gv
+vnoremap < <gv
+
 "nnoremap ,ho :HexokinaseTurnOn
 "nnoremap ,ht :HexokinaseToggle
 

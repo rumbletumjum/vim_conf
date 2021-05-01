@@ -1,0 +1,330 @@
+From 1e1f8c5c48103b3628f6ab3da4d2372aaa6e7755 Mon Sep 17 00:00:00 2001
+From: Ron <rumbletumjum@gmail.com>
+Date: Fri, 24 Jul 2020 14:31:57 -0400
+Subject: [PATCH] [neovim] initial config
+
+---
+ init.vim | 45 ++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 45 insertions(+)
+
+diff --git a/init.vim b/init.vim
+new file mode 100644
+index 0000000000000000000000000000000000000000..74810cc6b71c05d74e46555d1cec5f4e047bf667
+--- /dev/null
++++ b/init.vim
+@@ -0,0 +1,45 @@
++packadd minpac
++
++call minpac#init()
++call minpac#add('k-takata/minpac', { 'type': 'opt' })
++" call minpac#add('itchyny/lightline.vim')
++call minpac#add('vimwiki/vimwiki')
++call minpac#add('sheerun/vim-polyglot')
++call minpac#add('tpope/vim-surround')
++call minpac#add('fatih/vim-go', { 'rev': 'v1.23' })
++
++" themes
++call minpac#add('andreypopp/vim-colors-plain')
++call minpac#add('arcticicestudio/nord-vim', { 'branch': 'develop' })
++call minpac#add('jeffkreeftmeijer/vim-dim')
++call minpac#add('lifepillar/vim-solarized8')
++call minpac#add('morhetz/gruvbox')
++call minpac#add('noahfrederick/vim-noctu')
++call minpac#add('robertmeta/nofrils')
++call minpac#add('romainl/apprentice')
++call minpac#add('romainl/flattened')
++call minpac#add('sainnhe/gruvbox-material', {'type': 'opt' })
++call minpac#add('w0ng/vim-hybrid')
++call minpac#add('xero/sourcerer.vim')
++
++set listchars=tab:▸\ ,eol:¬,trail:#,extends:>
++
++set shiftwidth=4
++set softtabstop=0
++set tabstop=4
++set expandtab
++
++set background=dark
++set t_Co=256
++colorscheme gruvbox
++
++set noshowmode
++set number
++set relativenumber
++
++command! PackUpdate packadd minpac | source $MYVIMRC | call minpac#update('', { 'do': 'call minpac#status()' })
++command! PackClean  packadd minpac | source $MYVIMRC | call minpac#clean()
++command! PackStatus packadd minpac | source $MYVIMRC | call minpac#status()
++
++"nnoremap ,ho :HexokinaseTurnOn
++"nnoremap ,ht :HexokinaseToggle
+
+From 87dcc3e46bceb9ebd0c8ec23381aaa151daa8e7f Mon Sep 17 00:00:00 2001
+From: Ron <rumbletumjum@gmail.com>
+Date: Wed, 29 Jul 2020 15:24:10 -0400
+Subject: [PATCH] bleh
+
+---
+ init.vim | 14 ++++++++++----
+ 1 file changed, 10 insertions(+), 4 deletions(-)
+
+diff --git a/init.vim b/init.vim
+index 74810cc6b71c05d74e46555d1cec5f4e047bf667..8ee833eff939c02285ab103f2d6939b497f17e49 100644
+--- a/init.vim
++++ b/init.vim
+@@ -11,10 +11,12 @@ call minpac#add('fatih/vim-go', { 'rev': 'v1.23' })
+ " themes
+ call minpac#add('andreypopp/vim-colors-plain')
+ call minpac#add('arcticicestudio/nord-vim', { 'branch': 'develop' })
++call minpac#add('jacoborus/tender.vim')
+ call minpac#add('jeffkreeftmeijer/vim-dim')
+ call minpac#add('lifepillar/vim-solarized8')
+ call minpac#add('morhetz/gruvbox')
+ call minpac#add('noahfrederick/vim-noctu')
++call minpac#add('owickstrom/vim-colors-paramount')
+ call minpac#add('robertmeta/nofrils')
+ call minpac#add('romainl/apprentice')
+ call minpac#add('romainl/flattened')
+@@ -24,14 +26,18 @@ call minpac#add('xero/sourcerer.vim')
+ 
+ set listchars=tab:▸\ ,eol:¬,trail:#,extends:>
+ 
+-set shiftwidth=4
+-set softtabstop=0
+-set tabstop=4
++" set shiftwidth=4
++" set softtabstop=0
++" set tabstop=4
++set sw=2
++set sts=2
++set autoindent
+ set expandtab
+ 
+ set background=dark
+ set t_Co=256
+-colorscheme gruvbox
++" let g:gruvbox_contrast_dark='soft'
++colorscheme plain-cterm
+ 
+ set noshowmode
+ set number
+
+From 4efe977da1887ee7379977fe206a7caba79f3ea8 Mon Sep 17 00:00:00 2001
+From: rkb <rkb@pro.local>
+Date: Sat, 7 Nov 2020 14:59:47 -0500
+Subject: [PATCH] [neovim] make nvim sane again
+
+---
+ init.vim | 14 ++++++++++----
+ 1 file changed, 10 insertions(+), 4 deletions(-)
+
+diff --git a/init.vim b/init.vim
+index 8ee833eff939c02285ab103f2d6939b497f17e49..2de3fd4b514b5a68530e52e6f7da827365476ed3 100644
+--- a/init.vim
++++ b/init.vim
+@@ -13,6 +13,7 @@ call minpac#add('andreypopp/vim-colors-plain')
+ call minpac#add('arcticicestudio/nord-vim', { 'branch': 'develop' })
+ call minpac#add('jacoborus/tender.vim')
+ call minpac#add('jeffkreeftmeijer/vim-dim')
++call minpac#add('lifepillar/vim-gruvbox8')
+ call minpac#add('lifepillar/vim-solarized8')
+ call minpac#add('morhetz/gruvbox')
+ call minpac#add('noahfrederick/vim-noctu')
+@@ -29,15 +30,20 @@ set listchars=tab:▸\ ,eol:¬,trail:#,extends:>
+ " set shiftwidth=4
+ " set softtabstop=0
+ " set tabstop=4
+-set sw=2
+-set sts=2
++set shiftwidth=2
++set softtabstop=2
+ set autoindent
+ set expandtab
+ 
+ set background=dark
+ set t_Co=256
+-" let g:gruvbox_contrast_dark='soft'
+-colorscheme plain-cterm
++if (has("termguicolors"))
++  set t_8f=[38;2;%lu;%lu;%lum
++  set t_8b=[48;2;%lu;%lu;%lum
++  set termguicolors
++endif
++
++colorscheme gruvbox8
+ 
+ set noshowmode
+ set number
+
+From b38adfd113942c8277e3d90daa52cae1ca713b8a Mon Sep 17 00:00:00 2001
+From: Ron <rumbletumjum@gmail.com>
+Date: Sat, 7 Nov 2020 21:40:22 -0500
+Subject: [PATCH] [nvim] fix plugins
+
+---
+ init.vim | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/init.vim b/init.vim
+index 2de3fd4b514b5a68530e52e6f7da827365476ed3..a1832ff79a40dbb0430131b0773168cb00a4b148 100644
+--- a/init.vim
++++ b/init.vim
+@@ -3,10 +3,10 @@ packadd minpac
+ call minpac#init()
+ call minpac#add('k-takata/minpac', { 'type': 'opt' })
+ " call minpac#add('itchyny/lightline.vim')
+-call minpac#add('vimwiki/vimwiki')
++
+ call minpac#add('sheerun/vim-polyglot')
+ call minpac#add('tpope/vim-surround')
+-call minpac#add('fatih/vim-go', { 'rev': 'v1.23' })
++call minpac#add('vimwiki/vimwiki')
+ 
+ " themes
+ call minpac#add('andreypopp/vim-colors-plain')
+
+From d9f2f30b1d8e8f70d85459dddb22250fe4212d5b Mon Sep 17 00:00:00 2001
+From: rkb <rkb@rkbkr.io>
+Date: Thu, 12 Nov 2020 23:30:47 -0500
+Subject: [PATCH] [nvim] afterglow theme
+
+---
+ init.vim | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/init.vim b/init.vim
+index a1832ff79a40dbb0430131b0773168cb00a4b148..177627130395a8b8390774f7612687ed887e2fde 100644
+--- a/init.vim
++++ b/init.vim
+@@ -11,6 +11,7 @@ call minpac#add('vimwiki/vimwiki')
+ " themes
+ call minpac#add('andreypopp/vim-colors-plain')
+ call minpac#add('arcticicestudio/nord-vim', { 'branch': 'develop' })
++call minpac#add('danilo-augusto/vim-afterglow')
+ call minpac#add('jacoborus/tender.vim')
+ call minpac#add('jeffkreeftmeijer/vim-dim')
+ call minpac#add('lifepillar/vim-gruvbox8')
+@@ -43,7 +44,7 @@ if (has("termguicolors"))
+   set termguicolors
+ endif
+ 
+-colorscheme gruvbox8
++colorscheme afterglow
+ 
+ set noshowmode
+ set number
+
+From 628c5db142da18d0bfb5fa9fc0e0e7bad4637c8c Mon Sep 17 00:00:00 2001
+From: Ron <rumbletumjum@gmail.com>
+Date: Sun, 15 Nov 2020 23:19:57 -0500
+Subject: [PATCH] [n]vim
+
+---
+ init.vim | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/init.vim b/init.vim
+index 177627130395a8b8390774f7612687ed887e2fde..ee1a9c45dfae2af9ccd40d9851be04e8f04c0db2 100644
+--- a/init.vim
++++ b/init.vim
+@@ -44,7 +44,7 @@ if (has("termguicolors"))
+   set termguicolors
+ endif
+ 
+-colorscheme afterglow
++colorscheme gruvbox8_soft
+ 
+ set noshowmode
+ set number
+
+From 2c4f9a8885088a8b28910b49d95d3da4ec089b01 Mon Sep 17 00:00:00 2001
+From: Ron <rumbletumjum@gmail.com>
+Date: Tue, 8 Dec 2020 04:23:25 -0500
+Subject: [PATCH] mass update: changes
+
+---
+ init.vim | 11 ++++++++---
+ 1 file changed, 8 insertions(+), 3 deletions(-)
+
+diff --git a/init.vim b/init.vim
+index ee1a9c45dfae2af9ccd40d9851be04e8f04c0db2..f217444fd087356bff5c3ba913d7a472bdbc0b37 100644
+--- a/init.vim
++++ b/init.vim
+@@ -1,14 +1,15 @@
+ packadd minpac
+ 
++" minpac {{{
+ call minpac#init()
+ call minpac#add('k-takata/minpac', { 'type': 'opt' })
+ " call minpac#add('itchyny/lightline.vim')
+ 
+ call minpac#add('sheerun/vim-polyglot')
+-call minpac#add('tpope/vim-surround')
+ call minpac#add('vimwiki/vimwiki')
+-
+-" themes
++" tpope is a national treausre {{{
++call minpac#add('tpope/vim-surround')
++"}}} themes {{{
+ call minpac#add('andreypopp/vim-colors-plain')
+ call minpac#add('arcticicestudio/nord-vim', { 'branch': 'develop' })
+ call minpac#add('danilo-augusto/vim-afterglow')
+@@ -18,6 +19,7 @@ call minpac#add('lifepillar/vim-gruvbox8')
+ call minpac#add('lifepillar/vim-solarized8')
+ call minpac#add('morhetz/gruvbox')
+ call minpac#add('noahfrederick/vim-noctu')
++call minpac#add('nerdypepper/agila.vim')
+ call minpac#add('owickstrom/vim-colors-paramount')
+ call minpac#add('robertmeta/nofrils')
+ call minpac#add('romainl/apprentice')
+@@ -25,6 +27,7 @@ call minpac#add('romainl/flattened')
+ call minpac#add('sainnhe/gruvbox-material', {'type': 'opt' })
+ call minpac#add('w0ng/vim-hybrid')
+ call minpac#add('xero/sourcerer.vim')
++" }}}
+ 
+ set listchars=tab:▸\ ,eol:¬,trail:#,extends:>
+ 
+@@ -56,3 +59,5 @@ command! PackStatus packadd minpac | source $MYVIMRC | call minpac#status()
+ 
+ "nnoremap ,ho :HexokinaseTurnOn
+ "nnoremap ,ht :HexokinaseToggle
++
++" vim:ts=2:sts=2:sw=2:et:fdm=marker
+
+From 4717bb942615ace18254f4e099b94126d3f548ac Mon Sep 17 00:00:00 2001
+From: Ron <rumbletumjum@gmail.com>
+Date: Wed, 28 Apr 2021 10:51:38 -0400
+Subject: [PATCH] [neovim] init.vim: fix folds
+
+---
+ init.vim | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+
+diff --git a/init.vim b/init.vim
+index f217444fd087356bff5c3ba913d7a472bdbc0b37..04a424e44d2aff76d7ed794674b4679d5f93cce3 100644
+--- a/init.vim
++++ b/init.vim
+@@ -7,9 +7,12 @@ call minpac#add('k-takata/minpac', { 'type': 'opt' })
+ 
+ call minpac#add('sheerun/vim-polyglot')
+ call minpac#add('vimwiki/vimwiki')
++
+ " tpope is a national treausre {{{
+ call minpac#add('tpope/vim-surround')
+-"}}} themes {{{
++"}}} 
++
++"themes {{{
+ call minpac#add('andreypopp/vim-colors-plain')
+ call minpac#add('arcticicestudio/nord-vim', { 'branch': 'develop' })
+ call minpac#add('danilo-augusto/vim-afterglow')
+@@ -29,6 +32,8 @@ call minpac#add('w0ng/vim-hybrid')
+ call minpac#add('xero/sourcerer.vim')
+ " }}}
+ 
++" }}}
++
+ set listchars=tab:▸\ ,eol:¬,trail:#,extends:>
+ 
+ " set shiftwidth=4

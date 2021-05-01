@@ -1,0 +1,1099 @@
+From 2fc88b4c9539ae1a2f63e15440dbea59220bd2d0 Mon Sep 17 00:00:00 2001
+From: Ron <rumbletumjum@gmail.com>
+Date: Sat, 19 Sep 2020 15:42:29 -0400
+Subject: [PATCH] [vim] the almighty vimrc
+
+---
+ vimrc | 80 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 80 insertions(+)
+
+diff --git a/vimrc b/vimrc
+new file mode 100644
+index 0000000000000000000000000000000000000000..ae32c79c84a4a1f54c17f33953eb57805c4c9d7f
+--- /dev/null
++++ b/vimrc
+@@ -0,0 +1,80 @@
++call plug#begin('~/.vim/plugged')
++
++Plug 'flazz/vim-colorschemes'
++
++Plug 'andreypopp/vim-colors-plain'
++Plug 'arcticicestudio/nord-vim'
++Plug 'dylanaraps/wal.vim'
++Plug 'gruvbox-community/gruvbox'
++Plug 'jeffkreeftmeijer/vim-dim'
++Plug 'joshdick/onedark.vim'
++Plug 'lifepillar/vim-solarized8'
++Plug 'noahfrederick/vim-noctu'
++Plug 'robertmeta/nofrils'
++Plug 'romainl/apprentice'
++Plug 'romainl/flattened'
++Plug 'sainnhe/gruvbox-material'
++Plug 'w0ng/vim-hybrid'
++Plug 'yorickpeterse/happy_hacking.vim'
++
++Plug 'pangloss/vim-javascript'
++Plug 'tpope/vim-sensible'
++Plug 'tpope/vim-surround'
++Plug 'sheerun/vim-polyglot'
++
++Plug 'vimwiki/vimwiki'
++
++call plug#end()
++
++syntax off
++
++noremap <Space> <Nop>
++let mapleader = "\<space>"
++"nnoremap <space> :
++"nnoremap <leader>w :w<cr>
++"nnoremap <leader>q :q<cr>
++"nnoremap <leader>ff :e<cr>
++"nnoremap <leader>ws :sp<cr>
++"nnoremap <leader>wv :vs<cr>
++"nnoremap <leader>wd :q<cr>
++"nnoremap <leader>qq :qa<cr>
++
++set shiftwidth=4
++set softtabstop=4
++" set tabstop=4
++set expandtab
++set autoindent
++
++set t_8f=[38;2;%lu;%lu;%lum
++set t_8b=[48;2;%lu;%lu;%lum
++"set background=dark
++" set t_Co=256
++"if (has("termguicolors"))
++"  set termguicolors
++"endif
++
++set background=light
++colorscheme wal
++
++set noshowmode
++set number
++set relativenumber
++
++set noswapfile
++set nobackup
++set undodir=~/.vim/undodir
++set undofile
++
++set incsearch
++set ignorecase
++
++set colorcolumn=80
++
++"augroup AutoSaveFolds
++"    autocmd!
++"    autocmd BufWinLeave * mkview
++"    autocmd BufWinEnter * silent loadview
++"augroup END
++"highlight ColorColumn ctermbg=0 guibg=lightgrey
++
++au FileType vimwiki setlocal shiftwidth=6 tabstop=6 noexpandtab
+
+From 9960993bb54b1e2fd47003fa8f462bf3b7c534dd Mon Sep 17 00:00:00 2001
+From: Ron <rumbletumjum@gmail.com>
+Date: Sat, 3 Oct 2020 21:12:50 -0400
+Subject: [PATCH] [vim] reorganize packages, use base16-vim
+
+---
+ vimrc | 39 ++++++++++++++++++++++++---------------
+ 1 file changed, 24 insertions(+), 15 deletions(-)
+
+diff --git a/vimrc b/vimrc
+index ae32c79c84a4a1f54c17f33953eb57805c4c9d7f..7ebfd3fcc0f0193be20fa5dfd0db756e6edb8aff 100644
+--- a/vimrc
++++ b/vimrc
+@@ -1,32 +1,36 @@
+ call plug#begin('~/.vim/plugged')
+ 
+-Plug 'flazz/vim-colorschemes'
++"Plug 'flazz/vim-colorschemes'
+ 
+ Plug 'andreypopp/vim-colors-plain'
+-Plug 'arcticicestudio/nord-vim'
++"Plug 'arcticicestudio/nord-vim'
++"Plug 'dracula/vim', { 'as': 'dracula' }
++Plug 'chriskempson/base16-vim'
+ Plug 'dylanaraps/wal.vim'
+-Plug 'gruvbox-community/gruvbox'
++"Plug 'gruvbox-community/gruvbox'
+ Plug 'jeffkreeftmeijer/vim-dim'
+-Plug 'joshdick/onedark.vim'
+-Plug 'lifepillar/vim-solarized8'
++"Plug 'joshdick/onedark.vim'
++"Plug 'lifepillar/vim-solarized8'
+ Plug 'noahfrederick/vim-noctu'
+ Plug 'robertmeta/nofrils'
+-Plug 'romainl/apprentice'
+-Plug 'romainl/flattened'
+-Plug 'sainnhe/gruvbox-material'
++"Plug 'romainl/apprentice'
++"Plug 'romainl/flattened'
++"Plug 'sainnhe/gruvbox-material'
+ Plug 'w0ng/vim-hybrid'
+-Plug 'yorickpeterse/happy_hacking.vim'
++"Plug 'yorickpeterse/happy_hacking.vim'
+ 
+ Plug 'pangloss/vim-javascript'
++Plug 'leafgarland/typescript-vim'
++Plug 'maxmellon/vim-jsx-pretty'
+ Plug 'tpope/vim-sensible'
+ Plug 'tpope/vim-surround'
+ Plug 'sheerun/vim-polyglot'
+ 
+-Plug 'vimwiki/vimwiki'
++"Plug 'vimwiki/vimwiki'
+ 
+ call plug#end()
+ 
+-syntax off
++"syntax off
+ 
+ noremap <Space> <Nop>
+ let mapleader = "\<space>"
+@@ -47,14 +51,19 @@ set autoindent
+ 
+ set t_8f=[38;2;%lu;%lu;%lum
+ set t_8b=[48;2;%lu;%lu;%lum
+-"set background=dark
+-" set t_Co=256
++set background=dark
++set t_Co=256
+ "if (has("termguicolors"))
+ "  set termguicolors
+ "endif
+ 
+-set background=light
+-colorscheme wal
++"set background=light
++"colorscheme base16-default-dark
++
++if filereadable(expand("~/.vimrc_background"))
++    let base16colorspace=256
++    source ~/.vimrc_background
++endif
+ 
+ set noshowmode
+ set number
+
+From 38bbe00fb254b370b9fb09bcf5e8d9b66923c6a6 Mon Sep 17 00:00:00 2001
+From: Ron <rumbletumjum@gmail.com>
+Date: Sun, 11 Oct 2020 19:09:21 -0400
+Subject: [PATCH] [vim] switch to manually installed base16-vim
+
+---
+ vimrc | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/vimrc b/vimrc
+index 7ebfd3fcc0f0193be20fa5dfd0db756e6edb8aff..777ead8ef14779d9c3ddb7b0b5bf31f09407e910 100644
+--- a/vimrc
++++ b/vimrc
+@@ -5,7 +5,7 @@ call plug#begin('~/.vim/plugged')
+ Plug 'andreypopp/vim-colors-plain'
+ "Plug 'arcticicestudio/nord-vim'
+ "Plug 'dracula/vim', { 'as': 'dracula' }
+-Plug 'chriskempson/base16-vim'
++"Plug 'chriskempson/base16-vim'
+ Plug 'dylanaraps/wal.vim'
+ "Plug 'gruvbox-community/gruvbox'
+ Plug 'jeffkreeftmeijer/vim-dim'
+
+From b84d553a28acc66b6f283c30389a4f69de6832a4 Mon Sep 17 00:00:00 2001
+From: Ron <rumbletumjum@gmail.com>
+Date: Mon, 19 Oct 2020 12:32:00 -0400
+Subject: [PATCH] [vim] add themes, disable base16
+
+---
+ vimrc | 18 +++++++++---------
+ 1 file changed, 9 insertions(+), 9 deletions(-)
+
+diff --git a/vimrc b/vimrc
+index 777ead8ef14779d9c3ddb7b0b5bf31f09407e910..a1469b71a5957d6c10edb238ccaa2a664c49f0da 100644
+--- a/vimrc
++++ b/vimrc
+@@ -3,11 +3,11 @@ call plug#begin('~/.vim/plugged')
+ "Plug 'flazz/vim-colorschemes'
+ 
+ Plug 'andreypopp/vim-colors-plain'
+-"Plug 'arcticicestudio/nord-vim'
++Plug 'arcticicestudio/nord-vim'
+ "Plug 'dracula/vim', { 'as': 'dracula' }
+ "Plug 'chriskempson/base16-vim'
+ Plug 'dylanaraps/wal.vim'
+-"Plug 'gruvbox-community/gruvbox'
++Plug 'gruvbox-community/gruvbox'
+ Plug 'jeffkreeftmeijer/vim-dim'
+ "Plug 'joshdick/onedark.vim'
+ "Plug 'lifepillar/vim-solarized8'
+@@ -26,7 +26,7 @@ Plug 'tpope/vim-sensible'
+ Plug 'tpope/vim-surround'
+ Plug 'sheerun/vim-polyglot'
+ 
+-"Plug 'vimwiki/vimwiki'
++Plug 'vimwiki/vimwiki'
+ 
+ call plug#end()
+ 
+@@ -45,7 +45,7 @@ let mapleader = "\<space>"
+ 
+ set shiftwidth=4
+ set softtabstop=4
+-" set tabstop=4
++set tabstop=4
+ set expandtab
+ set autoindent
+ 
+@@ -58,12 +58,12 @@ set t_Co=256
+ "endif
+ 
+ "set background=light
+-"colorscheme base16-default-dark
++colorscheme nord
+ 
+-if filereadable(expand("~/.vimrc_background"))
+-    let base16colorspace=256
+-    source ~/.vimrc_background
+-endif
++"if filereadable(expand("~/.vimrc_background"))
++"    let base16colorspace=256
++"    source ~/.vimrc_background
++"endif
+ 
+ set noshowmode
+ set number
+
+From 98c49f1509c0ecfc7e7953feaf8288baad197e09 Mon Sep 17 00:00:00 2001
+From: Ron <rumbletumjum@gmail.com>
+Date: Wed, 21 Oct 2020 11:51:04 -0400
+Subject: [PATCH] quick mass update
+
+---
+ vimrc | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/vimrc b/vimrc
+index a1469b71a5957d6c10edb238ccaa2a664c49f0da..53190b0431fdd20a248f572b92815c7fdf084434 100644
+--- a/vimrc
++++ b/vimrc
+@@ -58,7 +58,7 @@ set t_Co=256
+ "endif
+ 
+ "set background=light
+-colorscheme nord
++colorscheme ron
+ 
+ "if filereadable(expand("~/.vimrc_background"))
+ "    let base16colorspace=256
+
+From 493cb842234bffbe2a438a68a86fc26f986d3663 Mon Sep 17 00:00:00 2001
+From: Ron <rumbletumjum@gmail.com>
+Date: Wed, 28 Oct 2020 19:49:05 -0400
+Subject: [PATCH] misc
+
+---
+ vimrc | 47 ++++++++++++++++++++++-------------------------
+ 1 file changed, 22 insertions(+), 25 deletions(-)
+
+diff --git a/vimrc b/vimrc
+index 53190b0431fdd20a248f572b92815c7fdf084434..c68273c4f89889a941dafa11b51c0c7e363ad53a 100644
+--- a/vimrc
++++ b/vimrc
+@@ -1,37 +1,37 @@
+ call plug#begin('~/.vim/plugged')
+ 
+-"Plug 'flazz/vim-colorschemes'
+-
+ Plug 'andreypopp/vim-colors-plain'
+ Plug 'arcticicestudio/nord-vim'
+-"Plug 'dracula/vim', { 'as': 'dracula' }
+-"Plug 'chriskempson/base16-vim'
+ Plug 'dylanaraps/wal.vim'
++Plug 'franbach/miramare'
+ Plug 'gruvbox-community/gruvbox'
++Plug 'jacoborus/tender.vim'
+ Plug 'jeffkreeftmeijer/vim-dim'
+-"Plug 'joshdick/onedark.vim'
+-"Plug 'lifepillar/vim-solarized8'
++Plug 'jsit/toast.vim'
++Plug 'joshdick/onedark.vim'
++Plug 'lifepillar/vim-gruvbox8'
++Plug 'lifepillar/vim-solarized8'
+ Plug 'noahfrederick/vim-noctu'
+ Plug 'robertmeta/nofrils'
+-"Plug 'romainl/apprentice'
+-"Plug 'romainl/flattened'
+-"Plug 'sainnhe/gruvbox-material'
++Plug 'romainl/apprentice'
++Plug 'romainl/flattened'
+ Plug 'w0ng/vim-hybrid'
+-"Plug 'yorickpeterse/happy_hacking.vim'
++Plug 'yorickpeterse/happy_hacking.vim'
+ 
+ Plug 'pangloss/vim-javascript'
+ Plug 'leafgarland/typescript-vim'
+ Plug 'maxmellon/vim-jsx-pretty'
++Plug 'sheerun/vim-polyglot'
++
+ Plug 'tpope/vim-sensible'
+ Plug 'tpope/vim-surround'
+-Plug 'sheerun/vim-polyglot'
+ 
++Plug 'airblade/vim-gitgutter'
++Plug 'ap/vim-css-color'
+ Plug 'vimwiki/vimwiki'
+ 
+ call plug#end()
+ 
+-"syntax off
+-
+ noremap <Space> <Nop>
+ let mapleader = "\<space>"
+ "nnoremap <space> :
+@@ -49,21 +49,15 @@ set tabstop=4
+ set expandtab
+ set autoindent
+ 
+-set t_8f=[38;2;%lu;%lu;%lum
+-set t_8b=[48;2;%lu;%lu;%lum
+ set background=dark
+ set t_Co=256
+-"if (has("termguicolors"))
+-"  set termguicolors
+-"endif
+-
+-"set background=light
+-colorscheme ron
++if (has("termguicolors"))
++  set t_8f=[38;2;%lu;%lu;%lum
++  set t_8b=[48;2;%lu;%lu;%lum
++  set termguicolors
++endif
+ 
+-"if filereadable(expand("~/.vimrc_background"))
+-"    let base16colorspace=256
+-"    source ~/.vimrc_background
+-"endif
++colorscheme miramare
+ 
+ set noshowmode
+ set number
+@@ -87,3 +81,6 @@ set colorcolumn=80
+ "highlight ColorColumn ctermbg=0 guibg=lightgrey
+ 
+ au FileType vimwiki setlocal shiftwidth=6 tabstop=6 noexpandtab
++
++autocmd BufWritePost *Xresources,*Xdefaults !xrdb %
++" vim: expandtab ts=2 sw=2 sts=2
+
+From 4245a36c4496da66e9ed67729e89b358a502d1d1 Mon Sep 17 00:00:00 2001
+From: Ron <rumbletumjum@gmail.com>
+Date: Sat, 14 Nov 2020 17:55:48 -0500
+Subject: [PATCH] misc
+
+---
+ vimrc | 11 ++++++++++-
+ 1 file changed, 10 insertions(+), 1 deletion(-)
+
+diff --git a/vimrc b/vimrc
+index c68273c4f89889a941dafa11b51c0c7e363ad53a..c30b22aac46c58c703eb328563617cac7d0a574c 100644
+--- a/vimrc
++++ b/vimrc
+@@ -1,7 +1,9 @@
++set nocompatible
+ call plug#begin('~/.vim/plugged')
+ 
+ Plug 'andreypopp/vim-colors-plain'
+ Plug 'arcticicestudio/nord-vim'
++Plug 'danilo-augusto/vim-afterglow'
+ Plug 'dylanaraps/wal.vim'
+ Plug 'franbach/miramare'
+ Plug 'gruvbox-community/gruvbox'
+@@ -23,11 +25,15 @@ Plug 'leafgarland/typescript-vim'
+ Plug 'maxmellon/vim-jsx-pretty'
+ Plug 'sheerun/vim-polyglot'
+ 
++Plug 'tpope/vim-commentary'
+ Plug 'tpope/vim-sensible'
++Plug 'tpope/vim-speeddating'
+ Plug 'tpope/vim-surround'
+ 
+ Plug 'airblade/vim-gitgutter'
+ Plug 'ap/vim-css-color'
++Plug 'jceb/vim-orgmode'
++Plug 'junegunn/goyo.vim'
+ Plug 'vimwiki/vimwiki'
+ 
+ call plug#end()
+@@ -57,7 +63,7 @@ if (has("termguicolors"))
+   set termguicolors
+ endif
+ 
+-colorscheme miramare
++colorscheme afterglow
+ 
+ set noshowmode
+ set number
+@@ -73,6 +79,9 @@ set ignorecase
+ 
+ set colorcolumn=80
+ 
++set modeline
++set modelines=10
++
+ "augroup AutoSaveFolds
+ "    autocmd!
+ "    autocmd BufWinLeave * mkview
+
+From 628c5db142da18d0bfb5fa9fc0e0e7bad4637c8c Mon Sep 17 00:00:00 2001
+From: Ron <rumbletumjum@gmail.com>
+Date: Sun, 15 Nov 2020 23:19:57 -0500
+Subject: [PATCH] [n]vim
+
+---
+ vimrc | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/vimrc b/vimrc
+index c30b22aac46c58c703eb328563617cac7d0a574c..5fb5c472492a451bc2f5d7f061ed6e6b83c8fa94 100644
+--- a/vimrc
++++ b/vimrc
+@@ -55,6 +55,10 @@ set tabstop=4
+ set expandtab
+ set autoindent
+ 
++let &t_SI = "\<Esc>[6 q"
++let &t_SR = "\<Esc>[4 q"
++let &t_EI = "\<Esc>[1 q"
++
+ set background=dark
+ set t_Co=256
+ if (has("termguicolors"))
+@@ -63,7 +67,7 @@ if (has("termguicolors"))
+   set termguicolors
+ endif
+ 
+-colorscheme afterglow
++colorscheme nord
+ 
+ set noshowmode
+ set number
+
+From e9db77eb9aa788f99dba577c502521e262eca6d3 Mon Sep 17 00:00:00 2001
+From: Ron <rumbletumjum@gmail.com>
+Date: Fri, 20 Nov 2020 12:24:32 -0500
+Subject: [PATCH] [vim] theme updates
+
+---
+ vimrc | 15 +++++++++++----
+ 1 file changed, 11 insertions(+), 4 deletions(-)
+
+diff --git a/vimrc b/vimrc
+index 5fb5c472492a451bc2f5d7f061ed6e6b83c8fa94..864bb67572e98309d5b9288bb23eacfb3e00cedc 100644
+--- a/vimrc
++++ b/vimrc
+@@ -14,6 +14,7 @@ Plug 'joshdick/onedark.vim'
+ Plug 'lifepillar/vim-gruvbox8'
+ Plug 'lifepillar/vim-solarized8'
+ Plug 'noahfrederick/vim-noctu'
++Plug 'rigellute/rigel'
+ Plug 'robertmeta/nofrils'
+ Plug 'romainl/apprentice'
+ Plug 'romainl/flattened'
+@@ -32,8 +33,11 @@ Plug 'tpope/vim-surround'
+ 
+ Plug 'airblade/vim-gitgutter'
+ Plug 'ap/vim-css-color'
++Plug 'itchyny/lightline.vim'
+ Plug 'jceb/vim-orgmode'
+ Plug 'junegunn/goyo.vim'
++Plug 'lifepillar/vim-colortemplate'
++Plug 'ledger/vim-ledger'
+ Plug 'vimwiki/vimwiki'
+ 
+ call plug#end()
+@@ -67,11 +71,15 @@ if (has("termguicolors"))
+   set termguicolors
+ endif
+ 
++let g:nord_cursor_line_number_background = 1
+ colorscheme nord
+ 
+ set noshowmode
++set laststatus=2
+ set number
+ set relativenumber
++set colorcolumn=80
++set cursorline
+ 
+ set noswapfile
+ set nobackup
+@@ -81,10 +89,9 @@ set undofile
+ set incsearch
+ set ignorecase
+ 
+-set colorcolumn=80
+-
+-set modeline
+-set modelines=10
++let g:lightline = {'colorscheme': 'nord',
++		\ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
++    \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" } }
+ 
+ "augroup AutoSaveFolds
+ "    autocmd!
+
+From dddd18153acb9dd78ea65c94d805feebc9066ed3 Mon Sep 17 00:00:00 2001
+From: Ron <rumbletumjum@gmail.com>
+Date: Fri, 20 Nov 2020 21:43:23 -0500
+Subject: [PATCH] [vim] modeline, folds
+
+---
+ vimrc | 22 ++++++----------------
+ 1 file changed, 6 insertions(+), 16 deletions(-)
+
+diff --git a/vimrc b/vimrc
+index 864bb67572e98309d5b9288bb23eacfb3e00cedc..5fffb86bdb3abd26987f8220bfc8553b12169e59 100644
+--- a/vimrc
++++ b/vimrc
+@@ -1,6 +1,6 @@
+ set nocompatible
+ call plug#begin('~/.vim/plugged')
+-
++"{{{
+ Plug 'andreypopp/vim-colors-plain'
+ Plug 'arcticicestudio/nord-vim'
+ Plug 'danilo-augusto/vim-afterglow'
+@@ -13,6 +13,7 @@ Plug 'jsit/toast.vim'
+ Plug 'joshdick/onedark.vim'
+ Plug 'lifepillar/vim-gruvbox8'
+ Plug 'lifepillar/vim-solarized8'
++Plug 'nanotech/jellybeans.vim'
+ Plug 'noahfrederick/vim-noctu'
+ Plug 'rigellute/rigel'
+ Plug 'robertmeta/nofrils'
+@@ -39,7 +40,7 @@ Plug 'junegunn/goyo.vim'
+ Plug 'lifepillar/vim-colortemplate'
+ Plug 'ledger/vim-ledger'
+ Plug 'vimwiki/vimwiki'
+-
++"}}}
+ call plug#end()
+ 
+ noremap <Space> <Nop>
+@@ -71,8 +72,7 @@ if (has("termguicolors"))
+   set termguicolors
+ endif
+ 
+-let g:nord_cursor_line_number_background = 1
+-colorscheme nord
++colorscheme jellybeans
+ 
+ set noshowmode
+ set laststatus=2
+@@ -89,18 +89,8 @@ set undofile
+ set incsearch
+ set ignorecase
+ 
+-let g:lightline = {'colorscheme': 'nord',
+-		\ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
+-    \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" } }
+-
+-"augroup AutoSaveFolds
+-"    autocmd!
+-"    autocmd BufWinLeave * mkview
+-"    autocmd BufWinEnter * silent loadview
+-"augroup END
+-"highlight ColorColumn ctermbg=0 guibg=lightgrey
+-
+ au FileType vimwiki setlocal shiftwidth=6 tabstop=6 noexpandtab
+ 
+ autocmd BufWritePost *Xresources,*Xdefaults !xrdb %
+-" vim: expandtab ts=2 sw=2 sts=2
++
++" vim: ts=2:sts=2:sw=2:et:fdm=marker
+
+From d3911285a378f5385298142d7c84754929de2ff9 Mon Sep 17 00:00:00 2001
+From: Ron <rumbletumjum@gmail.com>
+Date: Wed, 25 Nov 2020 16:52:30 -0500
+Subject: [PATCH] [vim] add themes & rearrange plugs
+
+---
+ vimrc | 47 ++++++++++++++++++++++++++++-------------------
+ 1 file changed, 28 insertions(+), 19 deletions(-)
+
+diff --git a/vimrc b/vimrc
+index 5fffb86bdb3abd26987f8220bfc8553b12169e59..bf0c521c59c2077f4f226d65e0bbeb74697318be 100644
+--- a/vimrc
++++ b/vimrc
+@@ -1,46 +1,53 @@
+ set nocompatible
+ call plug#begin('~/.vim/plugged')
+-"{{{
++
++"{{{1
++" themes
++"Plug 'itchyny/lightline.vim'
++Plug 'airblade/vim-gitgutter'
++Plug 'alessandroyorba/alduin'
++Plug 'alessandroyorba/arcadia'
++Plug 'alessandroyorba/sierra'
+ Plug 'andreypopp/vim-colors-plain'
++Plug 'ap/vim-css-color'
+ Plug 'arcticicestudio/nord-vim'
++Plug 'cocopon/iceberg.vim'
+ Plug 'danilo-augusto/vim-afterglow'
+ Plug 'dylanaraps/wal.vim'
+ Plug 'franbach/miramare'
+ Plug 'gruvbox-community/gruvbox'
+ Plug 'jacoborus/tender.vim'
++Plug 'jceb/vim-orgmode'
+ Plug 'jeffkreeftmeijer/vim-dim'
+-Plug 'jsit/toast.vim'
+ Plug 'joshdick/onedark.vim'
++Plug 'jsit/toast.vim'
++Plug 'junegunn/goyo.vim'
++Plug 'kkga/vim-envy'
++Plug 'leafgarland/typescript-vim'
++Plug 'ledger/vim-ledger'
++Plug 'lifepillar/vim-colortemplate'
+ Plug 'lifepillar/vim-gruvbox8'
+ Plug 'lifepillar/vim-solarized8'
++Plug 'maxmellon/vim-jsx-pretty'
+ Plug 'nanotech/jellybeans.vim'
+ Plug 'noahfrederick/vim-noctu'
++Plug 'pangloss/vim-javascript'
+ Plug 'rigellute/rigel'
+ Plug 'robertmeta/nofrils'
+ Plug 'romainl/apprentice'
+ Plug 'romainl/flattened'
+-Plug 'w0ng/vim-hybrid'
+-Plug 'yorickpeterse/happy_hacking.vim'
+-
+-Plug 'pangloss/vim-javascript'
+-Plug 'leafgarland/typescript-vim'
+-Plug 'maxmellon/vim-jsx-pretty'
++Plug 'sainnhe/edge'
++Plug 'sainnhe/forest-night'
+ Plug 'sheerun/vim-polyglot'
+-
+ Plug 'tpope/vim-commentary'
+ Plug 'tpope/vim-sensible'
+ Plug 'tpope/vim-speeddating'
+ Plug 'tpope/vim-surround'
+-
+-Plug 'airblade/vim-gitgutter'
+-Plug 'ap/vim-css-color'
+-Plug 'itchyny/lightline.vim'
+-Plug 'jceb/vim-orgmode'
+-Plug 'junegunn/goyo.vim'
+-Plug 'lifepillar/vim-colortemplate'
+-Plug 'ledger/vim-ledger'
+ Plug 'vimwiki/vimwiki'
+-"}}}
++Plug 'w0ng/vim-hybrid'
++Plug 'yorickpeterse/happy_hacking.vim'
++"}}}1
++
+ call plug#end()
+ 
+ noremap <Space> <Nop>
+@@ -72,7 +79,7 @@ if (has("termguicolors"))
+   set termguicolors
+ endif
+ 
+-colorscheme jellybeans
++colorscheme envy
+ 
+ set noshowmode
+ set laststatus=2
+@@ -89,6 +96,8 @@ set undofile
+ set incsearch
+ set ignorecase
+ 
++"hi ColorColumn ctermbg=0 guibg=
++
+ au FileType vimwiki setlocal shiftwidth=6 tabstop=6 noexpandtab
+ 
+ autocmd BufWritePost *Xresources,*Xdefaults !xrdb %
+
+From c6e0eef4fdb1ec2725aef611c0afe558f5db8761 Mon Sep 17 00:00:00 2001
+From: Ron <rumbletumjum@gmail.com>
+Date: Fri, 27 Nov 2020 22:43:38 -0500
+Subject: [PATCH] [vim] theme change
+
+---
+ vimrc | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/vimrc b/vimrc
+index bf0c521c59c2077f4f226d65e0bbeb74697318be..98968d9e1aad49ae52c89d2bac63ffbacd1f2523 100644
+--- a/vimrc
++++ b/vimrc
+@@ -11,6 +11,7 @@ Plug 'alessandroyorba/sierra'
+ Plug 'andreypopp/vim-colors-plain'
+ Plug 'ap/vim-css-color'
+ Plug 'arcticicestudio/nord-vim'
++Plug 'arzg/vim-substrata'
+ Plug 'cocopon/iceberg.vim'
+ Plug 'danilo-augusto/vim-afterglow'
+ Plug 'dylanaraps/wal.vim'
+@@ -79,7 +80,7 @@ if (has("termguicolors"))
+   set termguicolors
+ endif
+ 
+-colorscheme envy
++colorscheme substrata
+ 
+ set noshowmode
+ set laststatus=2
+
+From 5820ae829824668c653a3c96f8d4b1889d1c5f4e Mon Sep 17 00:00:00 2001
+From: Ron <rumbletumjum@gmail.com>
+Date: Sun, 6 Dec 2020 15:05:51 -0500
+Subject: [PATCH] [vim] clean house (for now)
+
+---
+ vimrc | 40 +++++-----------------------------------
+ 1 file changed, 5 insertions(+), 35 deletions(-)
+
+diff --git a/vimrc b/vimrc
+index 98968d9e1aad49ae52c89d2bac63ffbacd1f2523..3c69b655ddf5828b83f73834399441536bdb8446 100644
+--- a/vimrc
++++ b/vimrc
+@@ -1,53 +1,24 @@
+ set nocompatible
+ call plug#begin('~/.vim/plugged')
+ 
+-"{{{1
+-" themes
+-"Plug 'itchyny/lightline.vim'
++"{{{2
+ Plug 'airblade/vim-gitgutter'
+-Plug 'alessandroyorba/alduin'
+-Plug 'alessandroyorba/arcadia'
+-Plug 'alessandroyorba/sierra'
+-Plug 'andreypopp/vim-colors-plain'
+ Plug 'ap/vim-css-color'
+-Plug 'arcticicestudio/nord-vim'
+ Plug 'arzg/vim-substrata'
+-Plug 'cocopon/iceberg.vim'
+-Plug 'danilo-augusto/vim-afterglow'
+-Plug 'dylanaraps/wal.vim'
+-Plug 'franbach/miramare'
+-Plug 'gruvbox-community/gruvbox'
+-Plug 'jacoborus/tender.vim'
+-Plug 'jceb/vim-orgmode'
+-Plug 'jeffkreeftmeijer/vim-dim'
+-Plug 'joshdick/onedark.vim'
+ Plug 'jsit/toast.vim'
+ Plug 'junegunn/goyo.vim'
++Plug 'junegunn/limelight.vim'
+ Plug 'kkga/vim-envy'
+-Plug 'leafgarland/typescript-vim'
+-Plug 'ledger/vim-ledger'
+ Plug 'lifepillar/vim-colortemplate'
+ Plug 'lifepillar/vim-gruvbox8'
+ Plug 'lifepillar/vim-solarized8'
+-Plug 'maxmellon/vim-jsx-pretty'
+-Plug 'nanotech/jellybeans.vim'
+-Plug 'noahfrederick/vim-noctu'
+-Plug 'pangloss/vim-javascript'
+-Plug 'rigellute/rigel'
+-Plug 'robertmeta/nofrils'
+-Plug 'romainl/apprentice'
+-Plug 'romainl/flattened'
+-Plug 'sainnhe/edge'
+-Plug 'sainnhe/forest-night'
++Plug 'srcery-colors/srcery-vim'
+ Plug 'sheerun/vim-polyglot'
+ Plug 'tpope/vim-commentary'
+ Plug 'tpope/vim-sensible'
+ Plug 'tpope/vim-speeddating'
+ Plug 'tpope/vim-surround'
+-Plug 'vimwiki/vimwiki'
+-Plug 'w0ng/vim-hybrid'
+-Plug 'yorickpeterse/happy_hacking.vim'
+-"}}}1
++"}}}2
+ 
+ call plug#end()
+ 
+@@ -72,7 +43,6 @@ let &t_SI = "\<Esc>[6 q"
+ let &t_SR = "\<Esc>[4 q"
+ let &t_EI = "\<Esc>[1 q"
+ 
+-set background=dark
+ set t_Co=256
+ if (has("termguicolors"))
+   set t_8f=[38;2;%lu;%lu;%lum
+@@ -80,7 +50,7 @@ if (has("termguicolors"))
+   set termguicolors
+ endif
+ 
+-colorscheme substrata
++colorscheme srcery
+ 
+ set noshowmode
+ set laststatus=2
+
+From 2c4f9a8885088a8b28910b49d95d3da4ec089b01 Mon Sep 17 00:00:00 2001
+From: Ron <rumbletumjum@gmail.com>
+Date: Tue, 8 Dec 2020 04:23:25 -0500
+Subject: [PATCH] mass update: changes
+
+---
+ vimrc | 12 ++++++++----
+ 1 file changed, 8 insertions(+), 4 deletions(-)
+
+diff --git a/vimrc b/vimrc
+index 3c69b655ddf5828b83f73834399441536bdb8446..662866a8ed703485c26eb80160a20be225d88f53 100644
+--- a/vimrc
++++ b/vimrc
+@@ -1,7 +1,7 @@
+ set nocompatible
+ call plug#begin('~/.vim/plugged')
+ 
+-"{{{2
++"{{{1
+ Plug 'airblade/vim-gitgutter'
+ Plug 'ap/vim-css-color'
+ Plug 'arzg/vim-substrata'
+@@ -12,13 +12,14 @@ Plug 'kkga/vim-envy'
+ Plug 'lifepillar/vim-colortemplate'
+ Plug 'lifepillar/vim-gruvbox8'
+ Plug 'lifepillar/vim-solarized8'
++Plug 'nerdypepper/agila.vim'
+ Plug 'srcery-colors/srcery-vim'
+ Plug 'sheerun/vim-polyglot'
+ Plug 'tpope/vim-commentary'
+ Plug 'tpope/vim-sensible'
+ Plug 'tpope/vim-speeddating'
+ Plug 'tpope/vim-surround'
+-"}}}2
++"}}}1
+ 
+ call plug#end()
+ 
+@@ -43,14 +44,15 @@ let &t_SI = "\<Esc>[6 q"
+ let &t_SR = "\<Esc>[4 q"
+ let &t_EI = "\<Esc>[1 q"
+ 
+-set t_Co=256
++"set t_Co=256
+ if (has("termguicolors"))
+   set t_8f=[38;2;%lu;%lu;%lum
+   set t_8b=[48;2;%lu;%lu;%lum
+   set termguicolors
+ endif
+ 
+-colorscheme srcery
++set background=dark
++colorscheme gruvbox8
+ 
+ set noshowmode
+ set laststatus=2
+@@ -67,6 +69,8 @@ set undofile
+ set incsearch
+ set ignorecase
+ 
++set splitbelow splitright
++
+ "hi ColorColumn ctermbg=0 guibg=
+ 
+ au FileType vimwiki setlocal shiftwidth=6 tabstop=6 noexpandtab
+
+From 85499ae368869fc2447416eed78100a5041dc794 Mon Sep 17 00:00:00 2001
+From: Ron <rumbletumjum@gmail.com>
+Date: Sat, 9 Jan 2021 21:45:38 -0500
+Subject: [PATCH] [vim] jcs theme
+
+---
+ vimrc | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
+
+diff --git a/vimrc b/vimrc
+index 662866a8ed703485c26eb80160a20be225d88f53..81ac2fa03847617efa7ccd38d6dfd1f1e260884a 100644
+--- a/vimrc
++++ b/vimrc
+@@ -45,14 +45,14 @@ let &t_SR = "\<Esc>[4 q"
+ let &t_EI = "\<Esc>[1 q"
+ 
+ "set t_Co=256
+-if (has("termguicolors"))
+-  set t_8f=[38;2;%lu;%lu;%lum
+-  set t_8b=[48;2;%lu;%lu;%lum
+-  set termguicolors
+-endif
++" if (has("termguicolors"))
++"   set t_8f=[38;2;%lu;%lu;%lum
++"   set t_8b=[48;2;%lu;%lu;%lum
++"   set termguicolors
++" endif
+ 
+ set background=dark
+-colorscheme gruvbox8
++colorscheme jcs
+ 
+ set noshowmode
+ set laststatus=2
+
+From f532c9d8cdca4a3e13971ba828c6c45b0ca61d97 Mon Sep 17 00:00:00 2001
+From: Ron <rumbletumjum@gmail.com>
+Date: Sat, 10 Apr 2021 17:55:43 -0400
+Subject: [PATCH] [vim] plugin minimization
+
+---
+ vimrc | 13 -------------
+ 1 file changed, 13 deletions(-)
+
+diff --git a/vimrc b/vimrc
+index 81ac2fa03847617efa7ccd38d6dfd1f1e260884a..f934f445b81d7c6601141cd9476db1ee38ebda42 100644
+--- a/vimrc
++++ b/vimrc
+@@ -2,19 +2,6 @@ set nocompatible
+ call plug#begin('~/.vim/plugged')
+ 
+ "{{{1
+-Plug 'airblade/vim-gitgutter'
+-Plug 'ap/vim-css-color'
+-Plug 'arzg/vim-substrata'
+-Plug 'jsit/toast.vim'
+-Plug 'junegunn/goyo.vim'
+-Plug 'junegunn/limelight.vim'
+-Plug 'kkga/vim-envy'
+-Plug 'lifepillar/vim-colortemplate'
+-Plug 'lifepillar/vim-gruvbox8'
+-Plug 'lifepillar/vim-solarized8'
+-Plug 'nerdypepper/agila.vim'
+-Plug 'srcery-colors/srcery-vim'
+-Plug 'sheerun/vim-polyglot'
+ Plug 'tpope/vim-commentary'
+ Plug 'tpope/vim-sensible'
+ Plug 'tpope/vim-speeddating'
+
+From 28bf6307e24d4f2d00bd47ae628786db43dc1cc2 Mon Sep 17 00:00:00 2001
+From: Ron <rumbletumjum@gmail.com>
+Date: Sun, 25 Apr 2021 09:15:03 -0400
+Subject: [PATCH] [vim] we DO have the same name, after all
+
+---
+ vimrc | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/vimrc b/vimrc
+index f934f445b81d7c6601141cd9476db1ee38ebda42..14ecd84430c39ead1256f6de6239b45df823fcfb 100644
+--- a/vimrc
++++ b/vimrc
+@@ -39,7 +39,7 @@ let &t_EI = "\<Esc>[1 q"
+ " endif
+ 
+ set background=dark
+-colorscheme jcs
++colorscheme ron
+ 
+ set noshowmode
+ set laststatus=2
+
+From 14f50b4a4db4d4fb800ad6d3fc0e4f00c745292f Mon Sep 17 00:00:00 2001
+From: Ron <rumbletumjum@gmail.com>
+Date: Sun, 25 Apr 2021 23:10:04 -0400
+Subject: [PATCH] [vim] gruvbox.
+
+---
+ vimrc | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/vimrc b/vimrc
+index 14ecd84430c39ead1256f6de6239b45df823fcfb..d6bd61be93000ff9f2816323db75e6e2ed2727cb 100644
+--- a/vimrc
++++ b/vimrc
+@@ -6,6 +6,8 @@ Plug 'tpope/vim-commentary'
+ Plug 'tpope/vim-sensible'
+ Plug 'tpope/vim-speeddating'
+ Plug 'tpope/vim-surround'
++
++Plug 'gruvbox-community/gruvbox'
+ "}}}1
+ 
+ call plug#end()
+
+From 757f075107c6219a650364fbfb5f081c40c7adf1 Mon Sep 17 00:00:00 2001
+From: Ron <rumbletumjum@gmail.com>
+Date: Wed, 28 Apr 2021 15:56:15 -0400
+Subject: [PATCH] [meta] trying to clean up branches
+
+---
+ vimrc | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+
+diff --git a/vimrc b/vimrc
+index d6bd61be93000ff9f2816323db75e6e2ed2727cb..c1e33964da6693e30b85f7f2c068166f4cf5c6f8 100644
+--- a/vimrc
++++ b/vimrc
+@@ -8,6 +8,10 @@ Plug 'tpope/vim-speeddating'
+ Plug 'tpope/vim-surround'
+ 
+ Plug 'gruvbox-community/gruvbox'
++Plug 'sainnhe/edge'
++Plug 'sainnhe/everforest'
++Plug 'sainnhe/gruvbox-material'
++Plug 'sainnhe/sonokai'
+ "}}}1
+ 
+ call plug#end()
+@@ -33,7 +37,7 @@ let &t_SI = "\<Esc>[6 q"
+ let &t_SR = "\<Esc>[4 q"
+ let &t_EI = "\<Esc>[1 q"
+ 
+-"set t_Co=256
++" set t_Co=256
+ " if (has("termguicolors"))
+ "   set t_8f=[38;2;%lu;%lu;%lum
+ "   set t_8b=[48;2;%lu;%lu;%lum
+@@ -64,6 +68,7 @@ set splitbelow splitright
+ 
+ au FileType vimwiki setlocal shiftwidth=6 tabstop=6 noexpandtab
+ 
++autocmd BufWritePost .vimrc source %
+ autocmd BufWritePost *Xresources,*Xdefaults !xrdb %
+ 
+ " vim: ts=2:sts=2:sw=2:et:fdm=marker
+
+From 867282c25aefe92c760d5b0f8244adb43f438d4f Mon Sep 17 00:00:00 2001
+From: Ron <rumbletumjum@gmail.com>
+Date: Sat, 1 May 2021 13:59:56 -0400
+Subject: [PATCH] [vim] update config autocmd to include gvim
+
+---
+ vimrc | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/vimrc b/vimrc
+index c1e33964da6693e30b85f7f2c068166f4cf5c6f8..84c1037aa729fe7a4eadbba03610487e2c46f6e6 100644
+--- a/vimrc
++++ b/vimrc
+@@ -8,6 +8,10 @@ Plug 'tpope/vim-speeddating'
+ Plug 'tpope/vim-surround'
+ 
+ Plug 'gruvbox-community/gruvbox'
++
++Plug 'lifepillar/vim-gruvbox8'
++Plug 'lifepillar/vim-solarized8'
++
+ Plug 'sainnhe/edge'
+ Plug 'sainnhe/everforest'
+ Plug 'sainnhe/gruvbox-material'
+@@ -68,7 +72,7 @@ set splitbelow splitright
+ 
+ au FileType vimwiki setlocal shiftwidth=6 tabstop=6 noexpandtab
+ 
+-autocmd BufWritePost .vimrc source %
++autocmd BufWritePost .vimrc,.gvimrc source %
+ autocmd BufWritePost *Xresources,*Xdefaults !xrdb %
+ 
+ " vim: ts=2:sts=2:sw=2:et:fdm=marker

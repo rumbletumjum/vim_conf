@@ -8,6 +8,10 @@ Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
 
 Plug 'gruvbox-community/gruvbox'
+
+Plug 'lifepillar/vim-gruvbox8'
+Plug 'lifepillar/vim-solarized8'
+
 Plug 'sainnhe/edge'
 Plug 'sainnhe/everforest'
 Plug 'sainnhe/gruvbox-material'
@@ -68,7 +72,7 @@ set splitbelow splitright
 
 au FileType vimwiki setlocal shiftwidth=6 tabstop=6 noexpandtab
 
-autocmd BufWritePost .vimrc source %
+autocmd BufWritePost .vimrc,.gvimrc source %
 autocmd BufWritePost *Xresources,*Xdefaults !xrdb %
 
 " vim: ts=2:sts=2:sw=2:et:fdm=marker

@@ -3,21 +3,24 @@ packadd minpac
 " minpac {{{
 call minpac#init()
 call minpac#add('k-takata/minpac', { 'type': 'opt' })
-" call minpac#add('itchyny/lightline.vim')
 
 call minpac#add('sheerun/vim-polyglot')
-call minpac#add('vimwiki/vimwiki')
 
 " tpope is a national treausre {{{
-call minpac#add('tpope/vim-surround')
 call minpac#add('tpope/vim-commentary')
 call minpac#add('tpope/vim-sensible')
+call minpac#add('tpope/vim-surround')
 "}}} 
+
+call minpac#add('nvim-lua/plenary.nvim')
+call minpac#add('nvim-lua/popup.nvim')
+call minpac#add('nvim-telescope/telescope.nvim')
 
 "themes {{{
 call minpac#add('andreypopp/vim-colors-plain')
 call minpac#add('arcticicestudio/nord-vim', { 'branch': 'develop' })
 call minpac#add('danilo-augusto/vim-afterglow')
+call minpac#add('franbach/miramare')
 call minpac#add('jacoborus/tender.vim')
 call minpac#add('jeffkreeftmeijer/vim-dim')
 call minpac#add('lifepillar/vim-gruvbox8')
@@ -29,22 +32,34 @@ call minpac#add('owickstrom/vim-colors-paramount')
 call minpac#add('robertmeta/nofrils')
 call minpac#add('romainl/apprentice')
 call minpac#add('romainl/flattened')
+call minpac#add('sainnhe/edge', {'type': 'opt' })
+call minpac#add('sainnhe/everforest', {'type': 'opt' })
 call minpac#add('sainnhe/gruvbox-material', {'type': 'opt' })
+call minpac#add('sainnhe/sonokai', {'type': 'opt' })
 call minpac#add('w0ng/vim-hybrid')
 call minpac#add('xero/sourcerer.vim')
 " }}}
-
 " }}}
 
 set listchars=tab:▸\ ,eol:¬,trail:#,extends:>
 
-" set shiftwidth=4
-" set softtabstop=0
-" set tabstop=4
+set tabstop=2
 set shiftwidth=2
 set softtabstop=2
+set smartindent
 set autoindent
 set expandtab
+
+set noshowmode
+set number
+set relativenumber
+set cursorline
+set colorcolumn=80
+
+set hidden
+set noswapfile
+set nobackup
+set undofile
 
 set background=dark
 set t_Co=256
@@ -54,20 +69,22 @@ if (has("termguicolors"))
   set termguicolors
 endif
 
-colorscheme gruvbox8_soft
+packadd! gruvbox-material
+colorscheme gruvbox-material
 
-set noshowmode
-set number
-set relativenumber
+noremap <Space> <Nop>
+let mapleader = "\<Space>"
 
-command! PackUpdate packadd minpac | source $MYVIMRC | call minpac#update('', { 'do': 'call minpac#status()' })
-command! PackClean  packadd minpac | source $MYVIMRC | call minpac#clean()
-command! PackStatus packadd minpac | source $MYVIMRC | call minpac#status()
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope git_files<cr>
+nnoremap <leader>fh <cmd>Telescope buffers<cr>
+nnoremap <leader>fc <cmd>Telescope colorscheme<cr>
 
 vnoremap > >gv
 vnoremap < <gv
 
-"nnoremap ,ho :HexokinaseTurnOn
-"nnoremap ,ht :HexokinaseToggle
+command! PackUpdate packadd minpac | source $MYVIMRC | call minpac#update('', { 'do': 'call minpac#status()' })
+command! PackClean  packadd minpac | source $MYVIMRC | call minpac#clean()
+command! PackStatus packadd minpac | source $MYVIMRC | call minpac#status()
 
 " vim:ts=2:sts=2:sw=2:et:fdm=marker

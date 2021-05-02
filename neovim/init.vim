@@ -41,7 +41,7 @@ call minpac#add('xero/sourcerer.vim')
 " }}}
 " }}}
 
-set listchars=tab:▸\ ,eol:¬,trail:#,extends:>
+set listchars=tab:»·,trail:·,nbsp:·,eol:¬,extends:>
 
 set tabstop=2
 set shiftwidth=2
@@ -53,6 +53,7 @@ set expandtab
 set noshowmode
 set number
 set relativenumber
+set nowrap
 set cursorline
 set colorcolumn=80
 

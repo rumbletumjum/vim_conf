@@ -44,9 +44,9 @@ call minpac#add('xero/sourcerer.vim')
 
 set listchars=tab:»·,trail:·,nbsp:·,eol:¬,extends:>
 
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
 set smartindent
 set autoindent
 set expandtab

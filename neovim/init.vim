@@ -16,6 +16,7 @@ call minpac#add('nvim-lua/plenary.nvim')
 call minpac#add('nvim-lua/popup.nvim')
 call minpac#add('nvim-telescope/telescope.nvim')
 
+call minpac#add('nvim-treesitter/nvim-treesitter')
 "themes {{{
 call minpac#add('andreypopp/vim-colors-plain')
 call minpac#add('arcticicestudio/nord-vim', { 'branch': 'develop' })

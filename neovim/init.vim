@@ -17,6 +17,8 @@ call minpac#add('nvim-lua/popup.nvim')
 call minpac#add('nvim-telescope/telescope.nvim')
 
 call minpac#add('nvim-treesitter/nvim-treesitter')
+
+call minpac#add('neovim/nvim-lspconfig')
 "themes {{{
 call minpac#add('andreypopp/vim-colors-plain')
 call minpac#add('arcticicestudio/nord-vim', { 'branch': 'develop' })
@@ -58,6 +60,9 @@ set nowrap
 set cursorline
 set colorcolumn=80
 
+set splitright
+set splitbelow
+
 set hidden
 set noswapfile
 set nobackup
@@ -88,5 +93,9 @@ vnoremap < <gv
 command! PackUpdate packadd minpac | source $MYVIMRC | call minpac#update('', { 'do': 'call minpac#status()' })
 command! PackClean  packadd minpac | source $MYVIMRC | call minpac#clean()
 command! PackStatus packadd minpac | source $MYVIMRC | call minpac#status()
+
+lua << EOF
+require'lspconfig'.clangd.setup{}
+EOF
 
 " vim:ts=2:sts=2:sw=2:et:fdm=marker

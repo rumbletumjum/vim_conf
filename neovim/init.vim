@@ -13,7 +13,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
-Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 
 Plug 'neovim/nvim-lspconfig'
 "themes {{{
@@ -74,6 +74,7 @@ if (has("termguicolors"))
   set termguicolors
 endif
 
+let g:everforest_background = 'hard'
 colorscheme everforest
 
 noremap <Space> <Nop>
@@ -89,6 +90,12 @@ vnoremap < <gv
 
 lua << EOF
 require'lspconfig'.clangd.setup{}
+
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained",
+  hightlight = { enable = true },
+  indent = { enable = true }
+}
 EOF
 
 " vim:ts=2:sts=2:sw=2:et:fdm=marker

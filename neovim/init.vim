@@ -1,46 +1,44 @@
-packadd minpac
-
-" minpac {{{
-call minpac#init()
-call minpac#add('k-takata/minpac', { 'type': 'opt' })
-
-call minpac#add('sheerun/vim-polyglot')
+" Plug {{{
+call plug#begin(stdpath('data') . '/plugged')
+Plug 'sheerun/vim-polyglot'
 
 " tpope is a national treausre {{{
-call minpac#add('tpope/vim-commentary')
-call minpac#add('tpope/vim-sensible')
-call minpac#add('tpope/vim-surround')
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-surround'
 "}}} 
 
-call minpac#add('nvim-lua/plenary.nvim')
-call minpac#add('nvim-lua/popup.nvim')
-call minpac#add('nvim-telescope/telescope.nvim')
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
-call minpac#add('nvim-treesitter/nvim-treesitter')
+Plug 'nvim-treesitter/nvim-treesitter'
 
-call minpac#add('neovim/nvim-lspconfig')
+Plug 'neovim/nvim-lspconfig'
 "themes {{{
-call minpac#add('andreypopp/vim-colors-plain')
-call minpac#add('arcticicestudio/nord-vim', { 'branch': 'develop' })
-call minpac#add('danilo-augusto/vim-afterglow')
-call minpac#add('franbach/miramare')
-call minpac#add('jacoborus/tender.vim')
-call minpac#add('jeffkreeftmeijer/vim-dim')
-call minpac#add('lifepillar/vim-gruvbox8')
-call minpac#add('lifepillar/vim-solarized8')
-call minpac#add('morhetz/gruvbox')
-call minpac#add('noahfrederick/vim-noctu')
-call minpac#add('nerdypepper/agila.vim')
-call minpac#add('owickstrom/vim-colors-paramount')
-call minpac#add('robertmeta/nofrils')
-call minpac#add('romainl/apprentice')
-call minpac#add('romainl/flattened')
-call minpac#add('sainnhe/edge', {'type': 'opt' })
-call minpac#add('sainnhe/everforest', {'type': 'opt' })
-call minpac#add('sainnhe/gruvbox-material', {'type': 'opt' })
-call minpac#add('sainnhe/sonokai', {'type': 'opt' })
-call minpac#add('w0ng/vim-hybrid')
-call minpac#add('xero/sourcerer.vim')
+Plug 'andreypopp/vim-colors-plain'
+Plug 'danilo-augusto/vim-afterglow'
+Plug 'franbach/miramare'
+Plug 'jacoborus/tender.vim'
+Plug 'jeffkreeftmeijer/vim-dim'
+Plug 'lifepillar/vim-gruvbox8'
+Plug 'lifepillar/vim-solarized8'
+Plug 'morhetz/gruvbox'
+Plug 'noahfrederick/vim-noctu'
+Plug 'nerdypepper/agila.vim'
+Plug 'owickstrom/vim-colors-paramount'
+Plug 'robertmeta/nofrils'
+Plug 'romainl/apprentice'
+Plug 'romainl/flattened'
+Plug 'sainnhe/edge'
+Plug 'sainnhe/everforest'
+Plug 'sainnhe/gruvbox-material'
+Plug 'sainnhe/sonokai'
+Plug 'w0ng/vim-hybrid'
+Plug 'xero/sourcerer.vim'
+
+call plug#end()
 " }}}
 " }}}
 
@@ -76,8 +74,7 @@ if (has("termguicolors"))
   set termguicolors
 endif
 
-packadd! gruvbox-material
-colorscheme gruvbox-material
+colorscheme everforest
 
 noremap <Space> <Nop>
 let mapleader = "\<Space>"
@@ -89,10 +86,6 @@ nnoremap <leader>fc <cmd>Telescope colorscheme<cr>
 
 vnoremap > >gv
 vnoremap < <gv
-
-command! PackUpdate packadd minpac | source $MYVIMRC | call minpac#update('', { 'do': 'call minpac#status()' })
-command! PackClean  packadd minpac | source $MYVIMRC | call minpac#clean()
-command! PackStatus packadd minpac | source $MYVIMRC | call minpac#status()
 
 lua << EOF
 require'lspconfig'.clangd.setup{}

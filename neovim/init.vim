@@ -11,6 +11,7 @@ Plug 'tpope/vim-surround'
 
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/completion-nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
@@ -66,6 +67,9 @@ set noswapfile
 set nobackup
 set undofile
 
+set completeopt=menuone,noinsert,noselect
+set shortmess+=c
+
 set background=dark
 set t_Co=256
 if (has("termguicolors"))
@@ -88,8 +92,12 @@ nnoremap <leader>fc <cmd>Telescope colorscheme<cr>
 vnoremap > >gv
 vnoremap < <gv
 
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
 lua << EOF
-require'lspconfig'.clangd.setup{}
+require'lspconfig'.clangd.setup{on_attach=require'completion'.on_attach}
+require'lspconfig'.hls.setup{on_attach=require'completion'.on_attach}
 
 require'nvim-treesitter.configs'.setup {
   ensure_installed = "maintained",

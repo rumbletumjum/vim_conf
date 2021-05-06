@@ -88,6 +88,8 @@ nnoremap <leader>fg <cmd>Telescope git_files<cr>
 nnoremap <leader>fh <cmd>Telescope buffers<cr>
 nnoremap <leader>fc <cmd>Telescope colorscheme<cr>
 
+nnoremap <leader>gs <cmd>Git<cr>
+
 vnoremap > >gv
 vnoremap < <gv
 

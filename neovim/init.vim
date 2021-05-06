@@ -21,11 +21,11 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'andreypopp/vim-colors-plain'
 Plug 'danilo-augusto/vim-afterglow'
 Plug 'franbach/miramare'
+Plug 'gruvbox-community/gruvbox'
 Plug 'jacoborus/tender.vim'
 Plug 'jeffkreeftmeijer/vim-dim'
 Plug 'lifepillar/vim-gruvbox8'
 Plug 'lifepillar/vim-solarized8'
-Plug 'morhetz/gruvbox'
 Plug 'noahfrederick/vim-noctu'
 Plug 'nerdypepper/agila.vim'
 Plug 'owickstrom/vim-colors-paramount'
@@ -78,8 +78,7 @@ if (has("termguicolors"))
   set termguicolors
 endif
 
-let g:everforest_background = 'hard'
-colorscheme everforest
+colorscheme gruvbox8_hard
 
 noremap <Space> <Nop>
 let mapleader = "\<Space>"

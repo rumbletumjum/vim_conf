@@ -121,7 +121,7 @@ require'lspconfig'.clangd.setup{ on_attach = custom_attach }
 require'lspconfig'.hls.setup{ on_attach = custom_attach }
 
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained",
+  ensure_installed = "all",
   hightlight = { enable = true },
   indent = { enable = true }
 }

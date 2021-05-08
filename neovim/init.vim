@@ -9,6 +9,8 @@ Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 "}}} 
 
+Plug 'junegunn/gv.vim'
+
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/completion-nvim'
@@ -89,6 +91,7 @@ nnoremap <leader>fh <cmd>Telescope buffers<cr>
 nnoremap <leader>fc <cmd>Telescope colorscheme<cr>
 
 nnoremap <leader>gs <cmd>Git<cr>
+nnoremap <leader>gp <cmd>Git push<cr>
 
 vnoremap > >gv
 vnoremap < <gv

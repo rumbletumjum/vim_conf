@@ -100,8 +100,25 @@ inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 lua << EOF
-require'lspconfig'.clangd.setup{on_attach=require'completion'.on_attach}
-require'lspconfig'.hls.setup{on_attach=require'completion'.on_attach}
+local map = function(type, key, value)
+  vim.api.nvim_buf_set_keymap(0, type, key, value, { noremap = true, silent = true })
+end
+
+local custom_attach = function(client)
+  print("LSP Started")
+  require'completion'.on_attach(client)
+
+	map('n','gD','<cmd>lua vim.lsp.buf.declaration()<CR>')
+	map('n','gd','<cmd>lua vim.lsp.buf.definition()<CR>')
+	map('n','K','<cmd>lua vim.lsp.buf.hover()<CR>')
+	map('n','gr','<cmd>lua vim.lsp.buf.references()<CR>')
+	map('n','gs','<cmd>lua vim.lsp.buf.signature_help()<CR>')
+	map('n','gi','<cmd>lua vim.lsp.buf.implementation()<CR>')
+	-- map('n','gt','<cmd>lua vim.lsp.buf.type_definition()<CR>')
+end
+
+require'lspconfig'.clangd.setup{ on_attach = custom_attach }
+require'lspconfig'.hls.setup{ on_attach = custom_attach }
 
 require'nvim-treesitter.configs'.setup {
   ensure_installed = "maintained",

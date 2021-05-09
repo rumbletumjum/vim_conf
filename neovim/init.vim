@@ -10,6 +10,7 @@ Plug 'tpope/vim-surround'
 "}}} 
 
 Plug 'junegunn/gv.vim'
+Plug 'mhinz/vim-signify'
 
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-lua/popup.nvim'
@@ -61,6 +62,7 @@ set relativenumber
 set nowrap
 set cursorline
 set colorcolumn=80
+set signcolumn=yes
 
 set splitright
 set splitbelow

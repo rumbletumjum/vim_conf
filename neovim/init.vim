@@ -19,6 +19,7 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 
 Plug 'neovim/nvim-lspconfig'
+
 "themes {{{
 Plug 'andreypopp/vim-colors-plain'
 Plug 'danilo-augusto/vim-afterglow'
@@ -74,13 +75,13 @@ set shortmess+=c
 
 set background=dark
 set t_Co=256
-if (has("termguicolors"))
-  set t_8f=[38;2;%lu;%lu;%lum
-  set t_8b=[48;2;%lu;%lu;%lum
-  set termguicolors
-endif
+" if (has("termguicolors"))
+"   set t_8f=[38;2;%lu;%lu;%lum
+"   set t_8b=[48;2;%lu;%lu;%lum
+"   set termguicolors
+" endif
 
-colorscheme gruvbox8_hard
+colorscheme togglebit
 
 noremap <Space> <Nop>
 let mapleader = "\<Space>"

@@ -12,6 +12,7 @@ Plug 'tpope/vim-surround'
 Plug 'andreypopp/vim-colors-plain'
 Plug 'gruvbox-community/gruvbox'
 Plug 'jeffkreeftmeijer/vim-dim'
+Plug 'kkga/vim-envy'
 Plug 'lifepillar/vim-gruvbox8'
 Plug 'lifepillar/vim-solarized8'
 Plug 'noahfrederick/vim-noctu'
@@ -64,7 +65,7 @@ set t_Co=256
 "   set termguicolors
 " endif
 
-colorscheme togglebit
+colorscheme gruvbox8
 
 noremap <Space> <Nop>
 let mapleader = "\<Space>"
@@ -74,5 +75,7 @@ vnoremap < <gv
 
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+autocmd BufWritePost .vimrc,.gvimrc source %
 
 " vim:ts=2:sts=2:sw=2:et:fdm=marker

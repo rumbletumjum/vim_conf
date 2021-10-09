@@ -1,0 +1,45 @@
+execute pathogen#infect()
+call pathogen#helptags()
+set nocompatible
+filetype plugin indent on
+syntax enable
+set nu
+set ru
+
+set backspace+=indent,eol,start
+set listchars=tab:▸\ ,eol:¬
+
+" Backups, swap, etc.: get that crap outta here!
+set nobackup
+set nowritebackup
+set noswapfile
+
+" some reasonable tab defaults
+set ts=2
+set sts=2
+set sw=2
+set expandtab
+set laststatus=2
+set showcmd
+
+" wild!
+set wildmode=longest:full,full
+set wildmenu
+
+"base-16 color stuff
+"let base16colorspace=256
+set background=dark
+colorscheme base16-default
+ "hopefully this fixes airline
+let g:airline_powerline_fonts = 1
+
+" let g:promptline_preset = {
+"         \'a'    : [ '$USER' ],
+"         \'b'    : [ promptline#slices#cwd() ],
+"         \'warn' : [ promptline#slices#last_exit_code() ],
+"         \'x'    : [ promptline#slices#git_status() ],
+"         \'y'    : [ promptline#slices#vcs_branch() ]}
+
+let mapleader=","
+nmap <leader>nt :NERDTree<cr>
+nmap <leader>s :OverCommandLine%s/<cr>
